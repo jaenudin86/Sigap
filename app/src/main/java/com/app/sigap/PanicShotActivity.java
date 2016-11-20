@@ -10,8 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -104,15 +102,6 @@ public class PanicShotActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         txtDescription = (EditText) findViewById(R.id.txtDescription);
         imgPanicSituation = (ImageView) findViewById(R.id.imgPanicSituation);
     }
@@ -180,6 +169,8 @@ public class PanicShotActivity extends AppCompatActivity {
                 imgTakenPath = uriFilePath.getPath();
 
                 bindImageFromPath(imgTakenPath);
+
+                System.out.println(imgTakenPath);
             }
         }
     }

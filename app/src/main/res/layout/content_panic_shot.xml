@@ -24,7 +24,7 @@
 		android:id="@+id/txtDescription"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_above="@id/btnSend"
+		android:layout_above="@+id/btnSend"
 		android:hint="@string/panic_description_hint"/>
 
 	<Button
