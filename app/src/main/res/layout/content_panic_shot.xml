@@ -17,18 +17,21 @@
 		android:id="@+id/imgPanicSituation"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:layout_above="@+id/txtDescription"
 		android:contentDescription="@string/panic_situation_img_cd"/>
 
 	<EditText
 		android:id="@+id/txtDescription"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_below="@id/imgPanicSituation" />
+		android:layout_above="@id/btnSend"
+		android:hint="@string/panic_description_hint"/>
 
 	<Button
 		android:id="@+id/btnSend"
-		android:layout_below="@id/txtDescription"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content" />
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:text="Kirim"/>
 
 </RelativeLayout>

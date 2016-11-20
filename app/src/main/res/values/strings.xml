@@ -337,4 +337,5 @@
 	<string name="longitude">longitude</string>
 	<string name="title_activity_panic_shot">Panic Shot</string>
 	<string name="panic_situation_img_cd">Panic situation</string>
+	<string name="panic_description_hint">Deskripsikan keadaan darurat yang sedang dialami</string>
 </resources>
