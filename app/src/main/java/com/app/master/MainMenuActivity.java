@@ -76,10 +76,18 @@ public class MainMenuActivity extends AppCompatActivity
     /**
      * Variables
      * */
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     private static final int TAG_CODE_PERMISSION_LOCATION = 1945;
     private TapPanicState tapPanicState;
     private double latitude;
     private double longitude;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     /**
      * End of Variables
      * */
@@ -213,6 +221,7 @@ public class MainMenuActivity extends AppCompatActivity
     }
 
     @Override
+<<<<<<< HEAD
     public void onLocationChanged(Location location) {
         latitude = location.getLatitude();
         longitude = location.getLongitude();
@@ -283,6 +292,8 @@ public class MainMenuActivity extends AppCompatActivity
     }
 
     @Override
+=======
+>>>>>>> origin/master
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         // getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -340,9 +351,11 @@ public class MainMenuActivity extends AppCompatActivity
                 /**
                  * Start live chat activity
                  * */
-                Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
                 //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
-                //intent.putExtra("channel_url", "sendbird_open_channel_10225_ad0bb96dcdd766dd2c35045344ca72d87ae711f5");
+                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
                 startActivity(intent);
             }
         });
@@ -354,9 +367,10 @@ public class MainMenuActivity extends AppCompatActivity
                 /**
                  * Start live chat activity
                  * */
-                Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
+                Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
+                //Intent intent = new Intent(MainMenuActivity.this, com.app.sigap.LiveChatActivity.class);
                 //Intent intent = new Intent(MainMenuActivity.this, com.sendbird.android.sample.SendBirdGroupChatActivity.class);
-                //intent.putExtra("channel_url", "sendbird_open_channel_10225_ad0bb96dcdd766dd2c35045344ca72d87ae711f5");
+                //Intent intent = new Intent(MainMenuActivity.this, QiscusChatActivity.class);
                 startActivity(intent);
             }
         });

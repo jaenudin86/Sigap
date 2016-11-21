@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 package com.app.sigap;
 
 import android.Manifest;
@@ -16,9 +19,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+<<<<<<< HEAD
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+=======
+>>>>>>> origin/master
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -166,6 +172,13 @@ public class PanicShotActivity extends AppCompatActivity {
     }
 
     private void setupUI() {
+<<<<<<< HEAD
+=======
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+>>>>>>> origin/master
         txtDescription = (EditText) findViewById(R.id.txtDescription);
         imgPanicSituation = (ImageView) findViewById(R.id.imgPanicSituation);
     }
@@ -278,6 +291,11 @@ public class PanicShotActivity extends AppCompatActivity {
                 imgTakenPath = uriFilePath.getPath();
 
                 bindImageFromPath(imgTakenPath);
+<<<<<<< HEAD
+=======
+
+                System.out.println(imgTakenPath);
+>>>>>>> origin/master
             }
         }
     }
@@ -291,6 +309,7 @@ public class PanicShotActivity extends AppCompatActivity {
             imgPanicSituation.setImageBitmap(myBitmap);
         }
     }
+<<<<<<< HEAD
 
     private String getStringImage (Bitmap bitmap)
     {
@@ -457,3 +476,6 @@ public class PanicShotActivity extends AppCompatActivity {
     }
 
 }
+=======
+}
+>>>>>>> origin/master
