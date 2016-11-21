@@ -1,6 +1,8 @@
 package com.app.utility;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
@@ -38,4 +40,28 @@ public class PermissionHelper {
 
         return true;
     }
+
+    public static boolean hasPermissionInManifest(Context context, String permissionName) {
+        final String packageName = context.getPackageName();
+
+        try {
+            final PackageInfo packageInfo = context.getPackageManager()
+                    .getPackageInfo(packageName, PackageManager.GET_PERMISSIONS);
+
+            final String[] declaredPermisisons = packageInfo.requestedPermissions;
+
+            if (declaredPermisisons != null && declaredPermisisons.length > 0) {
+                for (String p : declaredPermisisons) {
+                    if (p.equals(permissionName)) {
+                        return true;
+                    }
+                }
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        }
+
+        return false;
+    }
+
 }

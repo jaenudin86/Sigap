@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 package com.app.sigap;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,17 +16,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-<<<<<<< HEAD
-import android.provider.Settings;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-=======
->>>>>>> origin/master
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,6 +41,7 @@ import com.app.master.MainMenuActivity;
 import com.app.sources.MainMenuIDE;
 import com.app.sources.PanikLog;
 import com.app.sources.SQLConnection;
+import com.app.utility.PermissionHelper;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -63,7 +57,6 @@ public class PanicShotActivity extends AppCompatActivity {
     private ImageButton btn_close;
     private ImageView imgPanicSituation;
     private EditText txtDescription;
-    private TextView txt_channel_name;
 
     private double latitude;
     private double longitude;
@@ -112,23 +105,23 @@ public class PanicShotActivity extends AppCompatActivity {
 
     private void Exit ()
     {
-        btn_close = (ImageButton) findViewById(R.id.btn_close);
-
-        btn_close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /**
-                 * End of panic shot activity
-                 * */
-                finishAffinity();
-
-                /**
-                 * Launch main dashboard activity
-                 * */
-                Intent intent = new Intent(PanicShotActivity.this, MainMenuActivity.class);
-                startActivity(intent);
-            }
-        });
+//        btn_close = (ImageButton) findViewById(R.id.btn_close);
+//
+//        btn_close.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                /**
+//                 * End of panic shot activity
+//                 * */
+//                finishAffinity();
+//
+//                /**
+//                 * Launch main dashboard activity
+//                 * */
+//                Intent intent = new Intent(PanicShotActivity.this, MainMenuActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     private boolean isPanicButtonPermissionGranted() {
@@ -172,13 +165,9 @@ public class PanicShotActivity extends AppCompatActivity {
     }
 
     private void setupUI() {
-<<<<<<< HEAD
-=======
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
->>>>>>> origin/master
         txtDescription = (EditText) findViewById(R.id.txtDescription);
         imgPanicSituation = (ImageView) findViewById(R.id.imgPanicSituation);
     }
@@ -254,16 +243,17 @@ public class PanicShotActivity extends AppCompatActivity {
 
     private void startCameraActivity() {
         PackageManager packageManager = getPackageManager();
+
         if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
-            File mainDirectory = new File(Environment.getExternalStorageDirectory(), "sigap/tmp");
-
-            if (!mainDirectory.exists()) {
-                mainDirectory.mkdirs();
-            }
-
             Calendar calendar = Calendar.getInstance();
 
-            uriFilePath = Uri.fromFile(new File(mainDirectory, "IMG_" + calendar.getTimeInMillis()));
+            File file = new File(Environment.getExternalStorageDirectory(), "IMG_" + calendar.getTimeInMillis() + ".jpg");
+
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                uriFilePath = FileProvider.getUriForFile(this, getPackageName() + ".provider", file);
+            } else {
+                uriFilePath = Uri.fromFile(file);
+            }
 
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -271,7 +261,6 @@ public class PanicShotActivity extends AppCompatActivity {
 
             startActivityForResult(intent, REQUEST_CODE);
         }
-
     }
 
     @Override
@@ -290,26 +279,27 @@ public class PanicShotActivity extends AppCompatActivity {
                 // Here is path of your captured image, so you can create bitmap from it, etc.
                 imgTakenPath = uriFilePath.getPath();
 
-                bindImageFromPath(imgTakenPath);
-<<<<<<< HEAD
-=======
+                Uri selectedImage = uriFilePath;
+
+                getContentResolver().notifyChange(selectedImage, null);
+                ContentResolver cr = getContentResolver();
+                Bitmap bitmap;
+
+                try {
+                    bitmap = android.provider.MediaStore.Images.Media
+                            .getBitmap(cr, selectedImage);
+
+                    imgPanicSituation.setImageBitmap(bitmap);
+                } catch (Exception e) {
+                    Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT).show();
+
+                    Log.e("Camera", e.toString());
+                }
 
                 System.out.println(imgTakenPath);
->>>>>>> origin/master
             }
         }
     }
-
-    private void bindImageFromPath(String path) {
-        File imgFile = new File(path);
-
-        if (imgFile.exists()) {
-            myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-
-            imgPanicSituation.setImageBitmap(myBitmap);
-        }
-    }
-<<<<<<< HEAD
 
     private String getStringImage (Bitmap bitmap)
     {
@@ -392,7 +382,6 @@ public class PanicShotActivity extends AppCompatActivity {
     @SuppressWarnings("")
     private void setFonts ()
     {
-        txt_channel_name = (TextView) findViewById(R.id.txt_channel_name);
         txtDescription = (EditText) findViewById(R.id.txtDescription);
         btnSend = (Button) findViewById(R.id.btnSend);
 
@@ -411,7 +400,6 @@ public class PanicShotActivity extends AppCompatActivity {
         /**
          * Set custom fonts
          * */
-        txt_channel_name.setTypeface(typeface_regular);
         txtDescription.setTypeface(typeface_regular);
         btnSend.setTypeface(typeface_regular);
 
@@ -476,6 +464,3 @@ public class PanicShotActivity extends AppCompatActivity {
     }
 
 }
-=======
-}
->>>>>>> origin/master

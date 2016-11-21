@@ -76,18 +76,12 @@ public class MainMenuActivity extends AppCompatActivity
     /**
      * Variables
      * */
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
     private static final int TAG_CODE_PERMISSION_LOCATION = 1945;
     private TapPanicState tapPanicState;
     private double latitude;
     private double longitude;
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
     /**
      * End of Variables
      * */
@@ -221,7 +215,6 @@ public class MainMenuActivity extends AppCompatActivity
     }
 
     @Override
-<<<<<<< HEAD
     public void onLocationChanged(Location location) {
         latitude = location.getLatitude();
         longitude = location.getLongitude();
@@ -292,8 +285,6 @@ public class MainMenuActivity extends AppCompatActivity
     }
 
     @Override
-=======
->>>>>>> origin/master
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         // getMenuInflater().inflate(R.menu.main_menu, menu);
