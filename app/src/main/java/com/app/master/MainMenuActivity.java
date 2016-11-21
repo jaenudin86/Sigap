@@ -79,8 +79,8 @@ public class MainMenuActivity extends AppCompatActivity
 
     private static final int TAG_CODE_PERMISSION_LOCATION = 1945;
     private TapPanicState tapPanicState;
-    private double latitude;
-    private double longitude;
+    private double latitude = 0;
+    private double longitude = 0;
 
     /**
      * End of Variables
@@ -141,6 +141,8 @@ public class MainMenuActivity extends AppCompatActivity
         ClickBantuanTerdekat();
 
         ClickPelayananPolres();
+
+        getCurrentLocation();
         /**
          * End of Dashboard listener
          * */
@@ -162,13 +164,13 @@ public class MainMenuActivity extends AppCompatActivity
                 } else {
                     tapPanicState.reset();
 
-                    startPanicRequest();
+                    showPanicRequestActivity();
                 }
             }
         });
     }
 
-    private void startPanicRequest() {
+    private void getCurrentLocation() {
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
@@ -218,7 +220,9 @@ public class MainMenuActivity extends AppCompatActivity
     public void onLocationChanged(Location location) {
         latitude = location.getLatitude();
         longitude = location.getLongitude();
+    }
 
+    private void showPanicRequestActivity() {
         Intent intent = new Intent(this, PanicShotActivity.class);
 
         intent.putExtra(getResources().getString(R.string.latitude), latitude);
