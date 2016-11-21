@@ -301,14 +301,27 @@ public class PanicShotActivity extends AppCompatActivity {
         }
     }
 
-    private String getStringImage (Bitmap bitmap)
+    private String getStringImage ()
     {
-        ByteArrayOutputStream baos;
-        baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-        String encodeImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
-        return encodeImage;
+        ContentResolver cr = getContentResolver();
+        Bitmap bitmap;
+
+        try {
+            bitmap = android.provider.MediaStore.Images.Media
+                    .getBitmap(cr, uriFilePath);
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+
+            byte[] imageBytes = baos.toByteArray();
+
+            String encodeImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+
+            return encodeImage;
+        } catch (Exception e) {
+            return "";
+        }
     }
 
     private void Save ()
@@ -365,7 +378,7 @@ public class PanicShotActivity extends AppCompatActivity {
                 params.put(SQLConnection.KEY_USERNAME, PanikLog.getUsername());
                 params.put(SQLConnection.KEY_LATITUDE, PanikLog.getLatitude());
                 params.put(SQLConnection.KEY_LONGITUDE, PanikLog.getLongitude());
-                params.put(SQLConnection.KEY_IMAGE, getStringImage(myBitmap));
+                params.put(SQLConnection.KEY_IMAGE, getStringImage());
                 params.put(SQLConnection.KEY_KETERANGAN, PanikLog.getKeterangan());
                 return params;
             }
