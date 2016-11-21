@@ -22,6 +22,14 @@ public class SQLConnection {
 
     public static final String KEY_KODE_VERIFIKASI = "kode_verifikasi";
 
+    public static final String KEY_IMAGE = "image";
+
+    public static final String KEY_LATITUDE = "latitude";
+
+    public static final String KEY_LONGITUDE = "longitude";
+
+    public static final String KEY_KETERANGAN = "keterangan";
+
     public static final String KEY_MAIL_NAME = "name";
 
     public static final String KEY_MAIL_EMAIL_FROM = "email_from";
@@ -93,6 +101,15 @@ public class SQLConnection {
     public static final String KEY_SIM_CACATFISIKLAIN = "cacatfisiklain";
 
     /**
+     * Sendbird parameter
+     * */
+    public static final String KEY_SENDBIRD_CREATE_USER_V3 = ChatIDE.SENDBIRD_CREATE_USER_V3;
+    public static final String KEY_SENDBIRD_USER_ID = ChatIDE.SENDBIRD_USER_ID;
+    public static final String KEY_SENDBIRD_NICKNAME = ChatIDE.SENDBIRD_NICKNAME;
+    public static final String KEY_SENDBIRD_PROFILE_URL = ChatIDE.SENDBIRD_PROFILE_URL;
+    public static final String KEY_SENDBIRD_ISSUE_ACCESS_TOKEN = ChatIDE.SENDBIRD_ISSUE_ACCESS_TOKEN;
+
+    /**
      * URL Login
      * */
     public static final String URL_LOGIN = URL_HOST + "/sigap/sigap_android/new_login.php";
@@ -127,6 +144,12 @@ public class SQLConnection {
     public static final String SIGNUP_SUCCESS = "success";
 
     /**
+     * If panic button success
+     * */
+    public static final String URL_PANIC = URL_HOST + "/sigap/sigap_android/panik.php";
+    public static final String PANIC_SUCCESS = "success";
+
+    /**
      * If pengaturan success
      * */
     public static final String PENGATURAN_SUCCESS = "success";
@@ -146,6 +169,7 @@ public class SQLConnection {
     public static final String SHARED_PREFERENCE_LOGIN = "login";
     public static final String SHARED_PREFERENCE_SIGNUP = "signup";
     public static final String SHARED_PREFERENCE_PENGATURAN = "pengaturan";
+    public static final String SHARED_PREFERENCE_PANIC = "panic";
 
     /**
      * Store username login detected, signup detected

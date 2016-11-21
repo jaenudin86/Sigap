@@ -89,6 +89,87 @@ public class SignVerificationActivity extends AppCompatActivity {
          * */
     }
 
+    private void CreateUserSendbird(
+        final String kode_verifikasi, final String username,  final String password
+    )
+    {
+        /**
+         * Set request method
+         * */
+        StringRequest stringRequest;
+        stringRequest = new StringRequest
+                (
+                    Request.Method.POST,
+                    SQLConnection.URL_SIGNUP_USER,
+                    new Response.Listener<String>()
+                    {
+                        @Override
+                        public void onResponse(String response)
+                        {
+                            boolean cancel = false;
+                            View focusView = null;
+
+                            /**
+                             * Jika respon gagal
+                             * */
+                            if(!response.equalsIgnoreCase(SQLConnection.SIGNUP_SUCCESS))
+                            {
+                                text_username.setError("* username sudah ada");
+                                focusView = text_username;
+                                cancel = true;
+                            }
+
+                            if (cancel)
+                            {
+                                focusView.requestFocus();
+                            }
+                            else
+                            {
+                                setMessage();
+                            }
+                        }
+                    },
+                    new Response.ErrorListener()
+                    {
+                        @Override
+                        public void onErrorResponse(VolleyError error)
+                        {
+                            /**
+                             * Tambahkan apa yang terjadi setelah Pesan Error muncul, alternatif
+                             * */
+                            //error.printStackTrace();
+                        }
+                    }
+                ){
+            protected Map<String, String> getParams()
+            {
+                /**
+                 * Get parameter from memory options
+                 * */
+                String nomor_ktp = MemberLog.getNoKTP();
+                String email = MemberLog.getEmail();
+
+                /**
+                 * Set parameter to send database
+                 * */
+                Map<String,String> params = new HashMap<String, String>();
+                params.put(SQLConnection.KEY_NO_KTP, nomor_ktp);
+                params.put(SQLConnection.KEY_USERNAME, username);
+                params.put(SQLConnection.KEY_PASSWORD, password);
+                params.put(SQLConnection.KEY_EMAIL, email);
+                params.put(SQLConnection.KEY_KODE_VERIFIKASI, kode_verifikasi);
+                return params;
+            }
+        };
+
+        /**
+         * Set volley request
+         * */
+        RequestQueue requestQueue;
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
     private void SaveUserSignup(
         final String kode_verifikasi, final String username,  final String password
     )

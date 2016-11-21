@@ -267,7 +267,7 @@ public class SignupActivity extends AppCompatActivity {
                          * Start sign verification
                          * */
                         Intent intent = new Intent(
-                            SignupActivity.this, SignVerificationActivity.class
+                                SignupActivity.this, SignVerificationActivity.class
                         );
                         startActivity(intent);
 

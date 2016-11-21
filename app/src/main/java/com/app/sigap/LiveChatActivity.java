@@ -105,7 +105,7 @@ public class LiveChatActivity extends AppCompatActivity {
         initSendBird();
 
         adminUserId = ChatIDE.DEFAULT_ADMIN;
-        sUserId = "mike";
+        sUserId = "user";
 
         connect();
     }

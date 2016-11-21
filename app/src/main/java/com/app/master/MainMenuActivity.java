@@ -41,6 +41,7 @@ import com.app.sigap.PengaturanActivity;
 import com.app.sigap.R;
 import com.app.sigap.TentangPolresActivity;
 import com.app.sources.MainMenuIDE;
+import com.app.sources.PanikLog;
 import com.app.sources.SQLConnection;
 import com.lib.font.CustomTypefaceSpan;
 
@@ -68,7 +69,6 @@ public class MainMenuActivity extends AppCompatActivity
 
     private MenuItem nav_menu_informasi;
     private MenuItem nav_menu_aplikasi;
-
     /**
      * End of ui reference
      * */
@@ -76,18 +76,10 @@ public class MainMenuActivity extends AppCompatActivity
     /**
      * Variables
      * */
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
     private static final int TAG_CODE_PERMISSION_LOCATION = 1945;
     private TapPanicState tapPanicState;
     private double latitude;
     private double longitude;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
     /**
      * End of Variables
      * */
@@ -97,7 +89,6 @@ public class MainMenuActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
 
         getWindow().setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -205,7 +196,7 @@ public class MainMenuActivity extends AppCompatActivity
         if (location != null) {
             onLocationChanged(location);
         } else {
-            Toast.makeText(this, "Cannot determine current location", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Menunggu akurasi dari gps anda.", Toast.LENGTH_SHORT).show();
         }
 
         locationManager.requestLocationUpdates(bestProvider, 20000, 0, this);
@@ -231,6 +222,27 @@ public class MainMenuActivity extends AppCompatActivity
         intent.putExtra(getResources().getString(R.string.latitude), latitude);
         intent.putExtra(getResources().getString(R.string.longitude), longitude);
 
+        /*
+        String message;
+        message = "Lat. : " + latitude + "\n" +
+                  "Long. : " + longitude;
+        */
+
+        //setMessage(message, intent, latitude, longitude);
+
+        //Toast.makeText(MainMenuActivity.this, message, Toast.LENGTH_SHORT).show();
+
+        /**
+         * Set variables into memory option
+         * */
+        String s_lat = "" + latitude;
+        String s_lon = "" + longitude;
+        PanikLog.setLatitude(s_lat);
+        PanikLog.setLongitude(s_lon);
+
+        /**
+         * Start activity
+         * */
         startActivity(intent);
     }
 
@@ -605,53 +617,28 @@ public class MainMenuActivity extends AppCompatActivity
         mi.setTitle(mNewTitle);
     }
 
+    private void setMessage(String message, final Intent intent, final double latitude, final double longitude)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message);
+        builder.setPositiveButton(
+                "Next",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        /**
+                         *  Open device of camera activity
+                         * */
+                        intent.putExtra(getResources().getString(R.string.latitude), latitude);
+                        intent.putExtra(getResources().getString(R.string.longitude), longitude);
 
-    @Override
-    public void onLocationChanged(Location location) {
-        latitude = location.getLatitude();
-        longitude = location.getLongitude();
+                        startActivity(intent);
+                    }
+                }
+        );
 
-        Intent intent = new Intent(this, PanicShotActivity.class);
-
-        intent.putExtra(getResources().getString(R.string.latitude), latitude);
-        intent.putExtra(getResources().getString(R.string.longitude), longitude);
-
-        startActivity(intent);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
-    @Override
-    public void onStatusChanged(String s, int i, Bundle bundle) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String s) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String s) {
-
-    }
-
-    private class TapPanicState {
-        int TAP_NEEDED = 3;
-        int tapCounter;
-
-        void increase() {
-            tapCounter++;
-        }
-
-        void reset() {
-            tapCounter = 0;
-        }
-
-        boolean maxTapReached() {
-            return tapCounter == (TAP_NEEDED - 1);
-        }
-
-        int getRemainingTap() {
-            return TAP_NEEDED - tapCounter;
-        }
-    }
 }

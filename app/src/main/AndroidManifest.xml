@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <manifest
     package="com.app.sigap"
-=======
-<manifest package="com.app.sigap"
->>>>>>> origin/master
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-sdk
@@ -19,6 +15,9 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Use android base feature -->
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
 
     <!-- Yudi access -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -247,23 +246,20 @@
             android:supportsRtl="true"
             android:theme="@style/SplashScreen" />
 
-<<<<<<< HEAD
         <!-- Tombol Panik -->
-=======
->>>>>>> origin/master
         <activity
             android:name=".PanicShotActivity"
             android:label="@string/title_activity_panic_shot"
+            android:noHistory="false"
+            android:screenOrientation="portrait"
+            android:supportsRtl="true"
             android:parentActivityName="com.app.master.MainMenuActivity"
-            android:theme="@style/PanicShot">
+            android:theme="@style/SplashScreen">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.app.master.MainMenuActivity" />
         </activity>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
     </application>
 
 </manifest>

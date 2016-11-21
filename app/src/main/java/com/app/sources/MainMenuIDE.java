@@ -10,6 +10,8 @@ public interface MainMenuIDE {
 
     String pesan_logout = "Keluar aplikasi sekarang ?";
 
+    String pesan_panic_success = "Terima kasih telah mengirimkan bukti kejadian.";
+
     String pesan_signup_finished = "Terima kasih. Silahkan login.";
 
     String pesan_update_password_failed = "Update password gagal.";

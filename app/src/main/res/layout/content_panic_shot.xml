@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@+id/content_panic_shot"
-<<<<<<< HEAD
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_panic_shot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -14,56 +14,50 @@
     tools:context="com.app.sigap.PanicShotActivity"
     tools:showIn="@layout/activity_panic_shot">
 
-    <ImageView
-        android:id="@+id/imgPanicSituation"
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nsv_buktikejadian"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/panic_situation_img_cd"/>
+        android:layout_height="match_parent"
+        android:visibility="visible">
 
-    <EditText
-        android:id="@+id/txtDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imgPanicSituation" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_below="@id/txtDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/imgPanicSituation"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:contentDescription="@string/panic_situation_img_cd"/>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="15dp"/>
+
+            <EditText
+                android:id="@+id/txtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="tulis keterangan"
+                android:textSize="7pt"
+                android:textStyle="normal"/>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <Button
+                android:id="@+id/btnSend"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:text="Kirim"
+                android:textSize="8pt"
+                android:textStyle="normal"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </RelativeLayout>
-=======
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:paddingBottom="@dimen/activity_vertical_margin"
-	android:paddingLeft="@dimen/activity_horizontal_margin"
-	android:paddingRight="@dimen/activity_horizontal_margin"
-	android:paddingTop="@dimen/activity_vertical_margin"
-	app:layout_behavior="@string/appbar_scrolling_view_behavior"
-	tools:context="com.app.sigap.PanicShotActivity"
-	tools:showIn="@layout/activity_panic_shot">
-
-	<ImageView
-		android:id="@+id/imgPanicSituation"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:contentDescription="@string/panic_situation_img_cd"/>
-
-	<EditText
-		android:id="@+id/txtDescription"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_below="@id/imgPanicSituation" />
-
-	<Button
-		android:id="@+id/btnSend"
-		android:layout_below="@id/txtDescription"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content" />
-
-</RelativeLayout>
->>>>>>> origin/master

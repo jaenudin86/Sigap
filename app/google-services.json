@@ -1,20 +1,27 @@
 {
   "project_info": {
-    "project_number": "251250083759",
-    "project_id": "sigap-chat"
+    "project_number": "1075192747477",
+    "firebase_url": "https://sigap01-6308e.firebaseio.com",
+    "project_id": "sigap01-6308e",
+    "storage_bucket": "sigap01-6308e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:251250083759:android:d5c19c889634bf6d",
+        "mobilesdk_app_id": "1:1075192747477:android:d5c19c889634bf6d",
         "android_client_info": {
           "package_name": "com.app.sigap"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1075192747477-lhsp3ck35buutu1s4uomujcepirupfid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyA4mQjtTXJxu1G-Js_vQ-xcr6vbkZ3ZtIc"
+          "current_key": "AIzaSyBqohwfzsEdNYrbFBIJ3QiL4cwh5O9U5WY"
         }
       ],
       "services": {
@@ -26,7 +33,7 @@
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }
