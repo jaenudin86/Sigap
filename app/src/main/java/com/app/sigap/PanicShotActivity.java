@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
@@ -20,10 +19,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -41,7 +41,6 @@ import com.app.master.MainMenuActivity;
 import com.app.sources.MainMenuIDE;
 import com.app.sources.PanikLog;
 import com.app.sources.SQLConnection;
-import com.app.utility.PermissionHelper;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -57,6 +56,7 @@ public class PanicShotActivity extends AppCompatActivity {
     private ImageButton btn_close;
     private ImageView imgPanicSituation;
     private EditText txtDescription;
+    private TextView txt_channel_name;
 
     private double latitude;
     private double longitude;
@@ -67,6 +67,13 @@ public class PanicShotActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
 
         if (savedInstanceState != null) {
             if (uriFilePath == null && savedInstanceState.getString("uri_file_path") != null) {
@@ -105,23 +112,23 @@ public class PanicShotActivity extends AppCompatActivity {
 
     private void Exit ()
     {
-//        btn_close = (ImageButton) findViewById(R.id.btn_close);
-//
-//        btn_close.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                /**
-//                 * End of panic shot activity
-//                 * */
-//                finishAffinity();
-//
-//                /**
-//                 * Launch main dashboard activity
-//                 * */
-//                Intent intent = new Intent(PanicShotActivity.this, MainMenuActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        btn_close = (ImageButton) findViewById(R.id.btn_close);
+
+        btn_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * End of panic shot activity
+                 * */
+                finishAffinity();
+
+                /**
+                 * Launch main dashboard activity
+                 * */
+                Intent intent = new Intent(PanicShotActivity.this, MainMenuActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private boolean isPanicButtonPermissionGranted() {
@@ -165,9 +172,9 @@ public class PanicShotActivity extends AppCompatActivity {
     }
 
     private void setupUI() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         txtDescription = (EditText) findViewById(R.id.txtDescription);
         imgPanicSituation = (ImageView) findViewById(R.id.imgPanicSituation);
     }
@@ -183,7 +190,9 @@ public class PanicShotActivity extends AppCompatActivity {
     }
 
     private void sendRequest() {
+        btnSend = (Button) findViewById(R.id.btnSend);
         txtDescription = (EditText) findViewById(R.id.txtDescription);
+
         String keterangan = txtDescription.getText().toString();
         File file = new File(imgTakenPath);
 
@@ -226,19 +235,56 @@ public class PanicShotActivity extends AppCompatActivity {
         "image      : " + VAR_IMAGE + "\n" +
         "keterangan : " + VAR_KETERANGAN;
 
-        setMessage(message);
+        System.out.println(message);
+
+        message = "Foto sedang diupload." + "\n" + "Harap tunggu sampai proses selesai.";
+        Toast.makeText(PanicShotActivity.this, message, Toast.LENGTH_LONG).show();
+
+        txtDescription.setVisibility(View.GONE);
+        btnSend.setVisibility(View.GONE);
         /**
          * Prepared post image
          * */
-        //Save();
+        Save();
     }
 
     private void setupVariables(Intent intent) {
-        latitude = intent.getDoubleExtra("latitude", 0);
-        longitude = intent.getDoubleExtra("longitude", 0);
+        //latitude = intent.getDoubleExtra("latitude", 0);
+        //longitude = intent.getDoubleExtra("longitude", 0);
+
+        latitude = intent.getDoubleExtra(getResources().getString(R.string.latitude), 0);
+        longitude = intent.getDoubleExtra(getResources().getString(R.string.longitude), 0);
+
+        String Latitude, Longitude;
+        Latitude = "" + latitude;
+        Longitude = "" + longitude;
+
+        PanikLog.setLatitude(Latitude);
+        PanikLog.setLongitude(Longitude);
 
         //todo: show camera and take the shot
         startCameraActivity();
+
+        /*
+        String message = "Latitude : " + Latitude + "\n" +
+                         "Longitude: " + Longitude;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message);
+        builder.setPositiveButton(
+                "Ok",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+                        //
+                    }
+                }
+        );
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        */
     }
 
     private void startCameraActivity() {
@@ -291,7 +337,7 @@ public class PanicShotActivity extends AppCompatActivity {
 
                     imgPanicSituation.setImageBitmap(bitmap);
                 } catch (Exception e) {
-                    Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Try again please.", Toast.LENGTH_SHORT).show();
 
                     Log.e("Camera", e.toString());
                 }
@@ -346,14 +392,14 @@ public class PanicShotActivity extends AppCompatActivity {
                              * */
                             if(!response.equalsIgnoreCase(SQLConnection.PANIC_SUCCESS))
                             {
-                                setMessage(response);
+                                //  gagal
                             }
                             else
                             {
                                 /**
                                  * Success
                                  * */
-                                setMessage("success");
+                                setMessage();
                             }
                         }
                     },
@@ -365,7 +411,7 @@ public class PanicShotActivity extends AppCompatActivity {
                             /**
                              * Tambahkan apa yang terjadi setelah Pesan Error muncul, alternatif
                              * */
-                            setMessage(error.getMessage());
+                            //setMessage(error.getMessage());
                         }
                     }
                 ){
@@ -395,6 +441,7 @@ public class PanicShotActivity extends AppCompatActivity {
     @SuppressWarnings("")
     private void setFonts ()
     {
+        txt_channel_name = (TextView) findViewById(R.id.txt_channel_name);
         txtDescription = (EditText) findViewById(R.id.txtDescription);
         btnSend = (Button) findViewById(R.id.btnSend);
 
@@ -413,9 +460,9 @@ public class PanicShotActivity extends AppCompatActivity {
         /**
          * Set custom fonts
          * */
+        txt_channel_name.setTypeface(typeface_regular);
         txtDescription.setTypeface(typeface_regular);
         btnSend.setTypeface(typeface_regular);
-
     }
 
     private void setMessage()
@@ -457,17 +504,6 @@ public class PanicShotActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i)
                     {
                         Save();
-                    }
-                }
-        );
-        builder.setNegativeButton(
-                "No",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        /**
-                         * Blocked
-                         * */
                     }
                 }
         );

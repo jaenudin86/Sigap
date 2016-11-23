@@ -306,6 +306,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    @SuppressWarnings("")
     private void setNomorKTP ()
     {
         /**

@@ -11,22 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_vertical_margin">
 
         <!-- Logo -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
             <ImageView
+                android:id="@+id/img_logo_polres"
                 android:layout_width="wrap_content"
                 android:layout_height="125dp"
+                android:layout_weight="1"
+                android:gravity="center"
                 app:srcCompat="@drawable/logo_new"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:gravity="bottom|center_horizontal"
-                android:id="@+id/img_logo_polres"
-                android:layout_weight="0.05"
                 tools:ignore="ContentDescription,ObsoleteLayoutParam" />
         </TableRow>
         <!-- End of Logo -->
@@ -38,15 +36,13 @@
 
             <TextView
                 android:text="Username"
-                android:textSize="6pt"
+                android:textSize="7pt"
                 android:textStyle="normal"
                 android:layout_width="0dp"
-                android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:textColor="#ffffff"
                 android:id="@+id/label_username"
                 android:layout_weight="1"
@@ -60,14 +56,12 @@
             android:baselineAligned="false">
 
             <EditText
-                android:layout_marginStart="35dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="35dp"
                 android:inputType="textPersonName"
                 android:textColor="#ffffff"
                 android:text=""
-                android:textSize="8pt"
+                android:textSize="6.75pt"
                 android:textStyle="normal"
                 android:ems="10"
                 android:id="@+id/text_username"
@@ -83,15 +77,13 @@
 
             <TextView
                 android:text="Password"
-                android:textSize="6pt"
+                android:textSize="7pt"
                 android:textStyle="normal"
                 android:layout_width="0dp"
-                android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:textColor="#ffffff"
                 android:id="@+id/label_password"
                 android:layout_weight="1"
@@ -105,10 +97,8 @@
             android:baselineAligned="false">
 
             <EditText
-                android:layout_marginStart="35dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="35dp"
                 android:imeActionId="@+id/login"
                 android:inputType="textPassword"
                 android:textColor="#ffffff"
@@ -129,17 +119,15 @@
 
             <Button
                 android:text="Log In"
-                android:textSize="6pt"
+                android:textSize="7pt"
                 android:textStyle="normal"
                 android:textColor="#e62129"
                 android:layout_width="0dp"
-                android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginEnd="35dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 android:background="#ffe100"
                 android:id="@+id/button_login"
                 android:layout_weight="1"
@@ -151,20 +139,16 @@
         <!-- Link Forget Password & Signup -->
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="50dp">
+            android:layout_height="match_parent">
 
             <TextView
                 android:text="Lupa Password"
-                android:textSize="6pt"
+                android:textSize="7pt"
                 android:textStyle="normal"
                 android:layout_width="0dp"
-                android:layout_height="35dp"
+                android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginEnd="5dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="10dp"
                 android:textColor="#ffffff"
                 android:id="@+id/label_forget_password"
                 android:layout_weight="1"
@@ -176,15 +160,12 @@
 
             <TextView
                 android:text="Daftar Akun Baru"
-                android:textSize="6pt"
+                android:textSize="7pt"
                 android:textStyle="normal"
                 android:layout_width="0dp"
-                android:layout_height="35dp"
+                android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginEnd="35dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="10dp"
                 android:textColor="#ffffff"
                 android:id="@+id/label_signup"
                 android:layout_weight="1"

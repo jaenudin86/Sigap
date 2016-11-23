@@ -228,16 +228,6 @@ public class MainMenuActivity extends AppCompatActivity
         intent.putExtra(getResources().getString(R.string.latitude), latitude);
         intent.putExtra(getResources().getString(R.string.longitude), longitude);
 
-        /*
-        String message;
-        message = "Lat. : " + latitude + "\n" +
-                  "Long. : " + longitude;
-        */
-
-        //setMessage(message, intent, latitude, longitude);
-
-        //Toast.makeText(MainMenuActivity.this, message, Toast.LENGTH_SHORT).show();
-
         /**
          * Set variables into memory option
          * */
@@ -250,6 +240,8 @@ public class MainMenuActivity extends AppCompatActivity
          * Start activity
          * */
         startActivity(intent);
+
+        MainMenuActivity.this.finishAffinity();
     }
 
     @Override

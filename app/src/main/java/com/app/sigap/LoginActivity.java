@@ -1,12 +1,13 @@
 package com.app.sigap;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,7 +17,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.app.master.MainMenuActivity;
+import com.app.sources.MainMenuIDE;
 import com.app.sources.SQLConnection;
 
 import java.util.HashMap;
@@ -88,39 +89,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        TextView label_forget_password = (TextView) findViewById(R.id.label_forget_password);
-        label_forget_password.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /**
-                 * End of login activity
-                 * */
-                finishAffinity();
-
-                /**
-                 * Go to forget password activity
-                 * */
-                Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        TextView label_signup = (TextView) findViewById(R.id.label_signup);
-        label_signup.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /**
-                 * End of login activity
-                 * */
-                finishAffinity();
-
-                /**
-                 * Go to signup activity
-                 * */
-                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
-                startActivity(intent);
-            }
-        });
+        ClickForgetPassword();
+        ClickSignup();
     }
 
     @Override
@@ -186,6 +156,70 @@ public class LoginActivity extends AppCompatActivity {
              * */
         }
     }
+
+    private void ClickForgetPassword ()
+    {
+        label_forget_password = (TextView) findViewById(R.id.label_forget_password);
+        label_forget_password.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckNomorKTP();
+            }
+        });
+    }
+
+    private void ClickSignup ()
+    {
+        label_signup = (TextView) findViewById(R.id.label_signup);
+        label_signup.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /**
+                 * End of login activity
+                 * */
+                finishAffinity();
+
+                /**
+                 * Go to signup activity
+                 * */
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void CheckNomorKTP ()
+    {
+        /**
+         * Buatkan sebuah shared preference
+         * */
+        SharedPreferences sharedPreferences;
+        sharedPreferences = getSharedPreferences(
+                SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
+        );
+
+        String nomorktp;
+        nomorktp = sharedPreferences.getString(SQLConnection.SHARED_PREFERENCE_NO_KTP, "");
+
+        if (nomorktp.isEmpty() == true)
+        {
+            setMessage();
+        }
+        else
+        {
+            /**
+             * End of login activity
+             * */
+            finishAffinity();
+
+            /**
+             * Go to forget password activity
+             * */
+            Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
+            startActivity(intent);
+        }
+    }
+
 
     private void Login(final String username, final String password)
     {
@@ -390,6 +424,26 @@ public class LoginActivity extends AppCompatActivity {
         label_username.setTypeface(typeface);
         text_password.setTypeface(typeface);
         text_username.setTypeface(typeface);
+    }
+
+    private void setMessage()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(MainMenuIDE.pesan_account_nothing);
+        builder.setPositiveButton(
+                "Ok",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        /**
+                         * Stay on login
+                         * */
+                    }
+                }
+        );
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }

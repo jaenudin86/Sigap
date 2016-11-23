@@ -10,7 +10,7 @@ public interface ChatIDE {
 
     String API_TOKEN = "b75dc7b3fe0ed861646415fe8b935f7b3f71e4ec"; /* Sigap01 */
 
-    String DEFAULT_ADMIN = "user"; /* Sigap01 */
+    String DEFAULT_ADMIN = "polresbaritoutara"; /* Sigap01 */
 
     /**
      * Create member into sendbird

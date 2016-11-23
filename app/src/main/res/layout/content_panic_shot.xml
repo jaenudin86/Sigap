@@ -17,20 +17,39 @@
 		android:id="@+id/imgPanicSituation"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:layout_above="@+id/txtDescription"
+        android:layout_above="@+id/separator_01"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
 		android:contentDescription="@string/panic_situation_img_cd"/>
+
+    <TableRow
+        android:id="@+id/separator_01"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:layout_above="@+id/txtDescription"
+        android:background="@color/colorAccent"/>
 
 	<EditText
 		android:id="@+id/txtDescription"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:minLines="5"
+        android:textAlignment="center"
+        android:textStyle="normal"
+        android:textSize="6.5pt"
 		android:layout_above="@+id/btnSend"
+        android:textColorHint="@color/colorAccent"
 		android:hint="@string/panic_description_hint"/>
 
 	<Button
 		android:id="@+id/btnSend"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
+        android:background="@drawable/background_02"
+        android:textColor="#ffffff"
+        android:textSize="6pt"
+        android:textStyle="normal"
+		android:layout_height="50dp"
 		android:layout_alignParentBottom="true"
 		android:text="Kirim"/>
 

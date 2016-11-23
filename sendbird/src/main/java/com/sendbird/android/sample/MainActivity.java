@@ -31,7 +31,7 @@ public class MainActivity extends FragmentActivity {
      * Please carefully read "Push notifications" section in SendBird Android documentation
      */
     //private static final String appId = "A7A2672C-AD11-11E4-8DAA-0A18B21C2D82"; /* Sample SendBird Application */
-    private static final String appId = "E3378899-41A0-4FA9-8B19-1174B5402135";
+    private static final String appId = "A00D0081-E945-44C5-86F2-87632756ED8F"; /* Sigap01 */
 
     public static String sUserId;
     private String mNickname;
@@ -41,8 +41,8 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sUserId = getPreferences(Context.MODE_PRIVATE).getString("user_id", "fadhli1996");
-        mNickname = getPreferences(Context.MODE_PRIVATE).getString("nickname", "Ahmad Fadhli");
+        sUserId = getPreferences(Context.MODE_PRIVATE).getString("user_id", "user");
+        mNickname = getPreferences(Context.MODE_PRIVATE).getString("nickname", "User");
 
         SendBird.init(appId, this);
 
