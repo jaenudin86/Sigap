@@ -81,26 +81,33 @@ public class ApiAccess {
         VolleySingleton.getInstance(this.ctx).addToRequestQueue(strRequest);
     }
 
-    public void post_data(String api_site,final Map<String,String>  xparams,final VolleyCallback callback) {
-        Log.v("xpickup", "xResponse: " + api_site);
-        // Log.v("xpickup","api_key : " + AppController.getApiKey());
+    public void post_data(String api_site,
+                          final Map<String, String> headers,
+                          final Map<String, String> xparams,
+                          final VolleyCallback callback) {
 
         StringRequest strRequest = new StringRequest(Request.Method.POST, api_site,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         callback.onSuccessResponse(response);
-
-                        Log.v("xpickup", "xResponse: " + response);
-
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("Volly Error", error.toString());
-                        VolleyLog.d("Errorvolley", "Errors : " + error.getMessage());
-                        //VolleyLog.v("Errorvolley", "Errors : " + error.getMessage());
+                        if (error.networkResponse.statusCode == 400) {
+                            // expecting only duplicate entry on this response
+                            // used on live chat activity on create
+                            // TODO: visit this later
+                            callback.onErrorResponse(true, "");
+                        } else {
+                            callback.onErrorResponse(false, "Unable to process request");
+                        }
+
+                        Log.e("Volley", error.toString());
+
+                        VolleyLog.d("Volley", "Errors : " + error.getMessage());
                     }
                 }){
             @Override
@@ -116,10 +123,15 @@ public class ApiAccess {
             @Override
             public Map<String,String> getHeaders(){
                 Map<String,String> params = new HashMap<String, String>();
-                //params.put("API_KEY",AppController.getApiKey());//
+
+                for (Map.Entry<String,String> entry : headers.entrySet()) {
+                    params.put(entry.getKey(), entry.getValue());
+                }
+
                 return params;
             }
         };
+
         //a03c2a01559b1c994ce4b8b3f148c440
         strRequest.setRetryPolicy(new RetryPolicy() {
             @Override
@@ -165,6 +177,7 @@ public class ApiAccess {
 
     public interface VolleyCallback {
         void onSuccessResponse(String result);
+        void onErrorResponse(boolean canContinue, String errorMessage);
     }
 
     public interface JVolleyCallback{

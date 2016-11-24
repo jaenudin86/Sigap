@@ -35,12 +35,17 @@ import android.widget.Toast;
 
 import com.app.master.MainMenuActivity;
 import com.app.sources.ChatIDE;
+import com.app.sources.SQLConnection;
 import com.app.utility.ChatInfoHelper;
 import com.app.utility.FileDownloadHelper;
 import com.app.utility.KeyboardHelper;
 import com.app.utility.MediaHelper;
 import com.app.utility.PermissionHelper;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.libraries.volley.ApiAccess;
+import com.models.sendbirdUser.CreateSBUResponseFailed;
 import com.sendbird.android.AdminMessage;
 import com.sendbird.android.BaseChannel;
 import com.sendbird.android.BaseMessage;
@@ -56,8 +61,10 @@ import com.sendbird.android.UserMessage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 public class LiveChatActivity extends AppCompatActivity {
 
@@ -105,9 +112,52 @@ public class LiveChatActivity extends AppCompatActivity {
         initSendBird();
 
         adminUserId = ChatIDE.DEFAULT_ADMIN;
-        sUserId = "user";
 
-        connect();
+        SharedPreferences sharedPreferences;
+        sharedPreferences = getSharedPreferences(
+                SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
+        );
+
+        sUserId = sharedPreferences.getString(SQLConnection.SHARED_PREFERENCE_USERNAME, "");
+
+        createSendBirdUser();
+    }
+
+    private void createSendBirdUser() {
+        ApiAccess apiAccess = new ApiAccess(this);
+
+        Map<String, String> headers = new HashMap<>();
+
+        headers.put(ChatIDE.SENDBIRD_API_TOKEN_HEADER_NAME, ChatIDE.API_TOKEN);
+
+        Map<String, String> params = new HashMap<>();
+
+        params.put(ChatIDE.SENDBIRD_USER_ID, sUserId);
+        params.put(ChatIDE.SENDBIRD_NICKNAME, sUserId);
+        params.put(ChatIDE.SENDBIRD_PROFILE_URL, "");
+        params.put(ChatIDE.SENDBIRD_ISSUE_ACCESS_TOKEN, "false");
+
+        apiAccess.post_data(ChatIDE.SENDBIRD_CREATE_USER_V3, headers, params,
+                new ApiAccess.VolleyCallback() {
+                    @Override
+                    public void onSuccessResponse(String result) {
+                        // connect after calling sendbird user creation,
+                        // this time we don't care the result of that creation method
+                        connect();
+                    }
+
+                    @Override
+                    public void onErrorResponse(boolean canContinue, String errorMessage) {
+                        if (canContinue) {
+                            connect();
+                        } else {
+                            Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT)
+                                    .show();
+
+                            finish();
+                        }
+                    }
+                });
     }
 
     private void initUI() {

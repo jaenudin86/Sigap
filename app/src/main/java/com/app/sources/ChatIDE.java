@@ -15,6 +15,8 @@ public interface ChatIDE {
     /**
      * Create member into sendbird
      * */
+    String SENDBIRD_API_TOKEN_HEADER_NAME = "api-token";
+
     String SENDBIRD_CREATE_USER_V3 = "https://api.sendbird.com/v3/users"; /* Method : POST */
 
     String SENDBIRD_ISSUE_ACCESS_TOKEN = "issue_access_token";

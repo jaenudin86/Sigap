@@ -244,6 +244,11 @@ public class SimLocationActivity extends AppCompatActivity implements OnMapReady
                     e.printStackTrace();
                 }
             }
+
+            @Override
+            public void onErrorResponse(boolean canContniue, String errorMessage) {
+
+            }
         });
 
        // return data;
