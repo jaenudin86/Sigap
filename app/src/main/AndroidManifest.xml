@@ -116,7 +116,7 @@
         <activity
             android:name=".LiveChatActivity"
             android:label="@string/title_activity_live_chat_sigap"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:theme="@style/LiveChat" />
 
@@ -255,7 +255,6 @@
             android:supportsRtl="true"
             android:theme="@style/SplashScreen" />
 
-
         <!-- Tombol Panik -->
         <activity
             android:name=".PanicShotActivity"
@@ -269,6 +268,29 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.app.master.MainMenuActivity" />
         </activity>
+
+        <!-- [START firebase_service] -->
+        <!--
+        <service
+            android:name="com.app.services.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        -->
+        <!-- [END firebase_service] -->
+
+        <!-- [START firebase_iid_service] -->
+        <!--
+        <service
+            android:name="com.app.services.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        -->
+        <!-- [END firebase_iid_service] -->
+
     </application>
 
 </manifest>

@@ -21,6 +21,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -48,6 +49,7 @@ import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
@@ -70,6 +72,7 @@ public class PanicShotActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private long totalSize = 0;
     private String imageName;
+    private Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -179,9 +182,6 @@ public class PanicShotActivity extends AppCompatActivity {
     }
 
     private void setupUI() {
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         txtDescription = (EditText) findViewById(R.id.txtDescription);
         imgPanicSituation = (ImageView) findViewById(R.id.imgPanicSituation);
     }
@@ -235,25 +235,6 @@ public class PanicShotActivity extends AppCompatActivity {
         PanikLog.setKeterangan(keterangan);
         PanikLog.setImage(file.getName());
 
-        String VAR_USERNAME = PanikLog.getUsername();
-        String VAR_LATITUDE = PanikLog.getLatitude();
-        String VAR_LONGITUDE = PanikLog.getLongitude();
-        String VAR_KETERANGAN = PanikLog.getKeterangan();
-        String VAR_IMAGE = PanikLog.getImage();
-        String message =
-        "username   : " + VAR_USERNAME + "\n" +
-        "latitude   : " + VAR_LATITUDE + "\n" +
-        "longitude  : " + VAR_LONGITUDE + "\n" +
-        "image      : " + VAR_IMAGE + "\n" +
-        "keterangan : " + VAR_KETERANGAN;
-
-//        System.out.println(message);
-//        message = "Foto sedang diupload." + "\n" + "Harap tunggu sampai proses selesai.";
-//        Toast.makeText(PanicShotActivity.this, message, Toast.LENGTH_LONG).show();
-
-//        txtDescription.setVisibility(View.GONE);
-//        btnSend.setVisibility(View.GONE);
-
         /**
          * Prepared post image
          * */
@@ -276,27 +257,6 @@ public class PanicShotActivity extends AppCompatActivity {
 
         //todo: show camera and take the shot
         startCameraActivity();
-
-        /*
-        String message = "Latitude : " + Latitude + "\n" +
-                         "Longitude: " + Longitude;
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(message);
-        builder.setPositiveButton(
-                "Ok",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i)
-                    {
-                        //
-                    }
-                }
-        );
-
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-        */
     }
 
     private void startCameraActivity() {
@@ -342,7 +302,7 @@ public class PanicShotActivity extends AppCompatActivity {
 
                 getContentResolver().notifyChange(selectedImage, null);
                 ContentResolver cr = getContentResolver();
-                Bitmap bitmap;
+                //Bitmap bitmap;
 
                 try {
                     bitmap = android.provider.MediaStore.Images.Media
@@ -362,6 +322,14 @@ public class PanicShotActivity extends AppCompatActivity {
                 System.out.println(imgTakenPath);
             }
         }
+    }
+
+    private String getStringImage(Bitmap bmp){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return encodedImage;
     }
 
 //    private String getStringImage ()
@@ -531,25 +499,6 @@ public class PanicShotActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void setMessage(final String message)
-    {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(message);
-        builder.setPositiveButton(
-                "Ok",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i)
-                    {
-                        Save();
-                    }
-                }
-        );
-
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
-
     private class UploadFileToServer extends AsyncTask<Void, Integer, String> {
         private String url;
         private final String currentUserName;
@@ -612,9 +561,11 @@ public class PanicShotActivity extends AppCompatActivity {
                 File sourceFile = new File(Environment.getExternalStorageDirectory()
                         .getAbsolutePath(), imageName);
 
-                // Adding file data to http body
-                entity.addPart("image", new FileBody(sourceFile));
+                String get_image = getStringImage(bitmap);
 
+                // Adding file data to http body
+                //entity.addPart("image", new FileBody(sourceFile));
+                entity.addPart("image", new StringBody(get_image));
                 entity.addPart("username", new StringBody(this.currentUserName));
                 entity.addPart("latitude", new StringBody(this.latitude));
                 entity.addPart("longitude", new StringBody(this.longitude));

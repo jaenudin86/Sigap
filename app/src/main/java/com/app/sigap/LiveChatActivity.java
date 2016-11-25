@@ -42,10 +42,7 @@ import com.app.utility.KeyboardHelper;
 import com.app.utility.MediaHelper;
 import com.app.utility.PermissionHelper;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.libraries.volley.ApiAccess;
-import com.models.sendbirdUser.CreateSBUResponseFailed;
 import com.sendbird.android.AdminMessage;
 import com.sendbird.android.BaseChannel;
 import com.sendbird.android.BaseMessage;
@@ -75,6 +72,7 @@ public class LiveChatActivity extends AppCompatActivity {
     }
 
     private static final String identifier = "SendBirdGroupChat";
+    private static final int PICK_IMAGE_REQUEST = 1;
     private static final int REQUEST_PICK_IMAGE = 100;
     private static final int REQUEST_INVITE_USERS = 200;
 
@@ -121,6 +119,21 @@ public class LiveChatActivity extends AppCompatActivity {
         sUserId = sharedPreferences.getString(SQLConnection.SHARED_PREFERENCE_USERNAME, "");
 
         createSendBirdUser();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        /**
+         * End of live chat activity
+         * */
+        finishAffinity();
+
+        /**
+         * Launch main dashboard
+         * */
+        Intent intent = new Intent(LiveChatActivity.this, MainMenuActivity.class);
+        startActivity(intent);
     }
 
     private void createSendBirdUser() {
@@ -171,7 +184,7 @@ public class LiveChatActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.list);
 
         // hide the upload functionality
-        btnUpload.setVisibility(View.GONE);
+        btnUpload.setVisibility(View.VISIBLE);
         progressBarUpload.setVisibility(View.GONE);
 
         // control listener
@@ -248,11 +261,9 @@ public class LiveChatActivity extends AppCompatActivity {
             mIsUploading = true;
 
             Intent intent = new Intent();
-
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent, "Select Picture"),
-                    REQUEST_PICK_IMAGE);
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_PICK_IMAGE);
 
             /**
              * Set this as false to maintain SendBird connection,
@@ -359,9 +370,11 @@ public class LiveChatActivity extends AppCompatActivity {
             case DISCONNECTED:
             case CONNECTING:
                 findViewById(R.id.btn_send).setEnabled(false);
+                findViewById(R.id.btn_upload).setEnabled(false);
                 break;
             case CONNECTED:
                 findViewById(R.id.btn_send).setEnabled(true);
+                findViewById(R.id.btn_upload).setEnabled(true);
                 break;
         }
     }
@@ -838,7 +851,8 @@ public class LiveChatActivity extends AppCompatActivity {
                 } else {
                     showToastMessage("Storage permission denied.");
                 }
-
+                break;
+            default:
                 break;
         }
     }
@@ -846,12 +860,17 @@ public class LiveChatActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_PICK_IMAGE && data != null && data.getData() != null) {
                 upload(data.getData());
             }
         }
+        /*
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri filePath = data.getData();
+            upload(filePath);
+        }
+        */
     }
 
     private void upload(Uri uri) {
@@ -869,6 +888,11 @@ public class LiveChatActivity extends AppCompatActivity {
                     .show();
         } else {
             showUploadProgress(true);
+
+            System.out.println("File : " + file);
+            System.out.println("Name : " + name);
+            System.out.println("Mime : " + mime);
+            System.out.println("Size : " + size);
 
             mGroupChannel.sendFileMessage(file, name, mime, size, "", new BaseChannel.SendFileMessageHandler() {
                 @Override
@@ -959,4 +983,5 @@ public class LiveChatActivity extends AppCompatActivity {
         super.onDestroy();
         disconnect();
     }
+
 }

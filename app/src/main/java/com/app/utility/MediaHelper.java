@@ -1,5 +1,6 @@
 package com.app.utility;
 
+import android.annotation.TargetApi;
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
@@ -18,6 +19,8 @@ import java.io.InputStream;
 import java.util.Hashtable;
 
 public class MediaHelper {
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     public static Hashtable<String, Object> getFileInfo(final Context context, final Uri uri) {
 
         final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
