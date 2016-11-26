@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.app.sigap.R;
 import com.app.sources.Data;
+import com.app.utility.MapDirectionHelper;
 
 import java.util.List;
 
@@ -71,12 +72,20 @@ public class Adapter extends BaseAdapter {
         alamat.setTypeface(typeface_regular);
         telepon.setTypeface(typeface_regular);
 
-        Data data = items.get(position);
+        final Data data = items.get(position);
 
         id.setText(data.getId());
         nama.setText(data.getNama());
         alamat.setText(data.getAlamat());
         telepon.setText(data.getTelepon());
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MapDirectionHelper.showDirection(view.getContext(),
+                        data.getLatitude(), data.getLongitude());
+            }
+        });
 
         return convertView;
     }

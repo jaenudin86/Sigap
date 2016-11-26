@@ -7,6 +7,8 @@ package com.app.sources;
 public class Data {
 
     private String id, nama, alamat, tahun, telepon, keterangan;
+    private String latitude;
+    private String longitude;
 
     public Data() {
     }
@@ -64,5 +66,21 @@ public class Data {
 
     public void setTahun(String tahun) {
         this.tahun = tahun;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 }

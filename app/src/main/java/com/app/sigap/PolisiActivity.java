@@ -76,6 +76,8 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
     public static final String TAG_NAMA     = "nama";
     public static final String TAG_ALAMAT   = "alamat";
     public static final String TAG_TELEPON  = "telepon";
+    public static final String TAG_LATITUDE = "latitude";
+    public static final String TAG_LONGITUDE = "longitude";
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
 
@@ -288,6 +290,8 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
                         item.setNama(obj.getString(TAG_NAMA));
                         item.setAlamat(obj.getString(TAG_ALAMAT));
                         item.setTelepon(obj.getString(TAG_TELEPON));
+                        item.setLatitude(obj.getString(TAG_LATITUDE));
+                        item.setLongitude(obj.getString(TAG_LONGITUDE));
 
                         // menambah item ke array
                         itemList.add(item);
