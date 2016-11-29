@@ -62,7 +62,7 @@
         <activity
             android:name=".SplashScreen"
             android:label="@string/app_name"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:theme="@style/SplashScreen">
             <intent-filter>
@@ -84,7 +84,7 @@
         <activity
             android:name=".ForgetPasswordActivity"
             android:label="@string/title_activity_forget_password"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:theme="@style/ForgetPassword" />
 
@@ -92,7 +92,7 @@
         <activity
             android:name="com.app.master.MainMenuActivity"
             android:label="@string/title_activity_main_menu"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:theme="@style/SplashScreen" />
 
@@ -100,7 +100,7 @@
         <activity
             android:name=".SignupActivity"
             android:label="@string/title_activity_signup"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:theme="@style/SignUp" />
 
@@ -108,7 +108,7 @@
         <activity
             android:name=".SignVerificationActivity"
             android:label="@string/title_activity_signup_verification"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:theme="@style/SignUpVerification" />
 
@@ -124,7 +124,7 @@
         <activity
             android:name=".BantuanTerdekatActivity"
             android:label="@string/title_activity_bantuan_terdekat"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:theme="@style/BantuanTerdekat" />
 
@@ -141,7 +141,7 @@
         <activity
             android:name=".TentangPolresActivity"
             android:label="@string/title_activity_tentang_polres"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/SplashScreen" />
@@ -150,7 +150,7 @@
         <activity
             android:name=".AboutAppActivity"
             android:label="@string/title_activity_about_app"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/SplashScreen" />
@@ -159,7 +159,7 @@
         <activity
             android:name=".AboutApp2Activity"
             android:label="@string/title_activity_about_app"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/SplashScreen" />
@@ -168,7 +168,7 @@
         <activity
             android:name=".PolisiActivity"
             android:label="@string/title_activity_polisi"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/DataPolres" />
@@ -177,7 +177,7 @@
         <activity
             android:name=".RumahSakitActivity"
             android:label="@string/title_activity_rs"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/DataPolres" />
@@ -186,7 +186,7 @@
         <activity
             android:name=".DamkarActivity"
             android:label="@string/title_activity_damkar"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/DataPolres" />
@@ -195,7 +195,7 @@
         <activity
             android:name=".SPBUActivity"
             android:label="@string/title_activity_spbu"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/DataPolres" />
@@ -204,7 +204,7 @@
         <activity
             android:name=".PelayananPolresActivity"
             android:label="@string/title_activity_pelayanan_polres"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:theme="@style/BantuanTerdekat" />
 
@@ -212,7 +212,7 @@
         <activity
             android:name=".QiscusChatActivity"
             android:label="@string/title_activity_live_chat_sigap"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:theme="@style/SplashScreen" />
 
@@ -250,7 +250,7 @@
         <activity
             android:name=".PengaturanActivity"
             android:label="@string/title_activity_pengaturan"
-            android:noHistory="true"
+            android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
             android:theme="@style/SplashScreen" />

@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -36,7 +37,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
      * UI Reference
      * */
     private TextView label_title, label_nomorktp, label_email;
-    private EditText text_nomorktp, text_email;
+    private EditText text_nomorktp, text_phone;
     private Button button_back, button_submit_forget_password;
     /**
      * End of UI Reference
@@ -62,7 +63,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         /**
          * Set method of forget password activity
          * */
-        text_email = (EditText) findViewById(R.id.text_email);
+        text_phone = (EditText) findViewById(R.id.text_phone);
 
         Button button_back = (Button) findViewById(R.id.button_back);
         Button button_submit_forget_password = (Button) findViewById(R.id.button_submit_forget_password);
@@ -94,25 +95,20 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isEmailValid(String email)
-    {
-        return email.contains("@");
-    }
-
     private boolean isSpacing (String spacing)
     {
         return spacing.contains(" ");
     }
 
     private void RequestPassword (
-        final String email
+        final String nomorktp, final String phone
     )
     {
         /**
          * Buatkan Request Dalam bentuk String
          * */
         StringRequest stringRequest = new StringRequest
-            (Request.Method.POST, SQLConnection.URL_MAIL_SEND_FORGET_PASSWORD,
+            (Request.Method.POST, SQLConnection.URL_FORGET_PASSWORD,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -122,10 +118,10 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                         /**
                          * Jika Respon server gagal
                          * */
-                        if(!response.equalsIgnoreCase(SQLConnection.LOGIN_SUCCESS))
+                        if(!response.substring(0, 7).equalsIgnoreCase(SQLConnection.LOGIN_SUCCESS))
                         {
-                            text_email.setError("* email tidak valid");
-                            focusView = text_email;
+                            text_phone.setError("* " + response);
+                            focusView = text_phone;
                             cancel = true;
                         }
 
@@ -136,17 +132,10 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                         else
                         {
                             /**
-                             * Start login activity
+                             * If success
                              * */
-                            Intent intent = new Intent(
-                                ForgetPasswordActivity.this, LoginActivity.class
-                            );
-                            startActivity(intent);
-
-                            /**
-                             * End of forget password activity
-                             * */
-                            finishAffinity();
+                            String message = response.substring(8);
+                            setMessage(message);
                         }
                     }
                 },
@@ -164,9 +153,10 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> params = new HashMap<>();
                 /**
-                 * Tambahkan parameter email untuk password request
+                 * Kirim parameter yang dibutuhkan oleh web service
                  * */
-                params.put(SQLConnection.KEY_MAIL_EMAIL_TO, email);
+                params.put(SQLConnection.KEY_NO_KTP, nomorktp);
+                params.put(SQLConnection.KEY_PHONE_NUMBER, phone);
 
                 /**
                  * Kembalikan Nilai parameter
@@ -188,7 +178,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
          * Variables
          * */
         String nomorktp = text_nomorktp.getText().toString();
-        String email = text_email.getText().toString();
+        String phone = text_phone.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -199,10 +189,10 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             focusView = text_nomorktp;
             cancel = true;
         }
-        else if (TextUtils.isEmpty(email))
+        else if (TextUtils.isEmpty(phone))
         {
-            text_email.setError("* harus diisi");
-            focusView = text_email;
+            text_phone.setError("* harus diisi");
+            focusView = text_phone;
             cancel = true;
         }
         else if (nomorktp.length() < UserIDE.length_nomorktp)
@@ -217,16 +207,16 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             focusView = text_nomorktp;
             cancel = true;
         }
-        else if (isSpacing(email))
+        else if (isSpacing(phone))
         {
-            text_email.setError("* tidak boleh ada spasi");
-            focusView = text_email;
+            text_phone.setError("* tidak boleh ada spasi");
+            focusView = text_phone;
             cancel = true;
         }
-        else if (!isEmailValid(email))
+        else if (!phone.substring(0, 2).equals("08"))
         {
-            text_email.setError("* email salah");
-            focusView = text_email;
+            text_phone.setError("* nomor handphone salah");
+            focusView = text_phone;
             cancel = true;
         }
 
@@ -236,7 +226,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         }
         else
         {
-            RequestPassword(email);
+            RequestPassword(nomorktp, phone);
         }
     }
 
@@ -248,7 +238,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         label_email = (TextView) findViewById(R.id.label_email);
 
         text_nomorktp = (EditText) findViewById(R.id.text_nomorktp);
-        text_email = (EditText) findViewById(R.id.text_email);
+        text_phone = (EditText) findViewById(R.id.text_phone);
 
         button_back = (Button) findViewById(R.id.button_back);
         button_submit_forget_password = (Button) findViewById(R.id.button_submit_forget_password);
@@ -273,7 +263,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         label_email.setTypeface(typeface_semibold);
 
         text_nomorktp.setTypeface(typeface_regular);
-        text_email.setTypeface(typeface_regular);
+        text_phone.setTypeface(typeface_regular);
 
         button_back.setTypeface(typeface_regular);
         button_submit_forget_password.setTypeface(typeface_regular);
@@ -306,6 +296,33 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    private void setMessage(String message)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message);
+        builder.setPositiveButton(
+                "Ok",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        /**
+                         * Back to login
+                         * */
+                        Intent intent = new Intent(ForgetPasswordActivity.this, LoginActivity.class);
+                        startActivity(intent);
+
+                        /**
+                         * End of main menu activity
+                         * */
+                        finishAffinity();
+                    }
+                }
+        );
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
     @SuppressWarnings("")
     private void setNomorKTP ()
     {
@@ -313,7 +330,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
          * Object
          * */
         text_nomorktp = (EditText) findViewById(R.id.text_nomorktp);
-        text_email = (EditText) findViewById(R.id.text_email);
+        text_phone = (EditText) findViewById(R.id.text_phone);
 
         /**
          * Buatkan sebuah shared preference
@@ -335,7 +352,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             text_nomorktp.setText(nomorktp);
             text_nomorktp.setEnabled(false);
 
-            text_email.requestFocus();
+            text_phone.requestFocus();
         }
     }
 

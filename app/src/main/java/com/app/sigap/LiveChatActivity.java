@@ -147,7 +147,7 @@ public class LiveChatActivity extends AppCompatActivity {
 
         params.put(ChatIDE.SENDBIRD_USER_ID, sUserId);
         params.put(ChatIDE.SENDBIRD_NICKNAME, sUserId);
-        params.put(ChatIDE.SENDBIRD_PROFILE_URL, "");
+        params.put(ChatIDE.SENDBIRD_PROFILE_URL, SQLConnection.URL_CHAT_USER_ICON);
         params.put(ChatIDE.SENDBIRD_ISSUE_ACCESS_TOKEN, "false");
 
         apiAccess.post_data(ChatIDE.SENDBIRD_CREATE_USER_V3, headers, params,
@@ -289,8 +289,9 @@ public class LiveChatActivity extends AppCompatActivity {
                 }
 
                 String nickname = user.getNickname();
+                final String ic_user = SQLConnection.URL_CHAT_USER_ICON;
 
-                SendBird.updateCurrentUserInfo(nickname, null, new SendBird.UserInfoUpdateHandler() {
+                SendBird.updateCurrentUserInfo(nickname, ic_user, new SendBird.UserInfoUpdateHandler() {
                     @Override
                     public void onUpdated(SendBirdException e) {
                         if (e != null) {
@@ -302,8 +303,9 @@ public class LiveChatActivity extends AppCompatActivity {
 
                         SharedPreferences.Editor editor = getPreferences(Context.MODE_PRIVATE).edit();
 
-                        editor.putString("user_id", user.getUserId());
-                        editor.putString("nickname", user.getNickname());
+                        editor.putString(ChatIDE.SENDBIRD_USER_ID, user.getUserId());
+                        editor.putString(ChatIDE.SENDBIRD_NICKNAME, user.getNickname());
+                        editor.putString(ChatIDE.SENDBIRD_PROFILE_URL, ic_user);
                         editor.commit();
 
                         setState(State.CONNECTED);

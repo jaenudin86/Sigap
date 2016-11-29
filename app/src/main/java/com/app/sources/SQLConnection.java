@@ -22,6 +22,8 @@ public class SQLConnection {
 
     public static final String KEY_KODE_VERIFIKASI = "kode_verifikasi";
 
+    public static final String KEY_PHONE_NUMBER = "phone";
+
     public static final String KEY_IMAGE = "image";
 
     public static final String KEY_LATITUDE = "latitude";
@@ -117,7 +119,7 @@ public class SQLConnection {
     /**
      * URL Send Mail
      * */
-    public static final String URL_MAIL_SEND_FORGET_PASSWORD = URL_HOST + "/sigap/sigap_android/send_mail.php";
+    public static final String URL_FORGET_PASSWORD = URL_HOST + "/sigap/sigap_android/lupa_password.php";
 
     /**
      * URL Signup
@@ -146,6 +148,7 @@ public class SQLConnection {
     /**
      * If panic button success
      * */
+    public static final String URL_CHAT_USER_ICON = URL_HOST + "/sigap/images/user_yellow_128.png";
     public static final String URL_PANIC = URL_HOST + "/sigap/sigap_android/panik.php";
     public static final String PANIC_SUCCESS = "success";
 
