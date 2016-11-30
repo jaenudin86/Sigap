@@ -1,13 +1,11 @@
 package com.app.sigap;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -15,7 +13,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,8 +20,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.app.config.SignVerificationConfig;
-import com.app.master.MainMenuActivity;
 import com.app.sources.MainMenuIDE;
 import com.app.sources.MemberLog;
 import com.app.sources.SQLConnection;
@@ -359,23 +354,27 @@ public class SignVerificationActivity extends AppCompatActivity {
         /**
          * Set typeface
          * */
-        Typeface typeface = Typeface.createFromAsset(
+        Typeface typeface_regular = Typeface.createFromAsset(
             getApplicationContext().getAssets(),
             "fonts/titillium_regular_webfont.ttf"
+        );
+        Typeface typeface_semibold = Typeface.createFromAsset(
+            getApplicationContext().getAssets(),
+            "fonts/titillium-semibold-webfont.ttf"
         );
 
         /**
          * Set custom fonts
          * */
-        label_kode_verifikasi.setTypeface(typeface);
-        label_username.setTypeface(typeface);
-        label_password.setTypeface(typeface);
-        label_repeat_password.setTypeface(typeface);
-        text_kode_verifikasi.setTypeface(typeface);
-        text_username.setTypeface(typeface);
-        text_password.setTypeface(typeface);
-        text_repeat_password.setTypeface(typeface);
-        button_save.setTypeface(typeface);
+        label_kode_verifikasi.setTypeface(typeface_semibold);
+        label_username.setTypeface(typeface_semibold);
+        label_password.setTypeface(typeface_semibold);
+        label_repeat_password.setTypeface(typeface_semibold);
+        text_kode_verifikasi.setTypeface(typeface_regular);
+        text_username.setTypeface(typeface_regular);
+        text_password.setTypeface(typeface_regular);
+        text_repeat_password.setTypeface(typeface_regular);
+        button_save.setTypeface(typeface_semibold);
     }
 
     private void setCode()

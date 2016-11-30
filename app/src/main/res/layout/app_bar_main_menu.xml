@@ -17,19 +17,20 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:background="@drawable/background_02"
+            android:background="#b71c1c"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             android:weightSum="1">
 
             <TextView
                 android:id="@+id/toolbar_text"
+                android:text="@string/title_activity_main_menu"
                 android:textAlignment="center"
-                android:textSize="10pt"
+                android:textColor="#ffffff"
+                android:textSize="9.5pt"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginRight="@dimen/dimen_60dp"
-                android:text="@string/title_activity_main_menu"
                 android:gravity="center_vertical"/>
 
         </android.support.v7.widget.Toolbar>

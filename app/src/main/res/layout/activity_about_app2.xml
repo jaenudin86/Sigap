@@ -5,14 +5,17 @@
     android:id="@+id/activity_about_app2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d50000"
     tools:context="com.app.sigap.AboutApp2Activity">
 
+    <!--
     <ImageView
         android:id="@+id/bg_aboutapp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_04"
         android:scaleType="fitXY"/>
+    -->
 
     <LinearLayout
         android:orientation="vertical"

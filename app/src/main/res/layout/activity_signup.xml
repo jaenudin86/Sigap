@@ -2,14 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
 
+    <!--
     <ImageView
         android:src="@drawable/back_white"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="fitXY"
         tools:ignore="ContentDescription" />
+    -->
 
     <TableLayout
         android:layout_width="match_parent"
@@ -25,13 +28,15 @@
 
             <TextView
                 android:text="Nomor KTP"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_nomor_ktp"
                 android:layout_weight="1"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
@@ -50,6 +55,9 @@
                 android:layout_marginEnd="35dp"
                 android:inputType="number"
                 android:text=""
+                android:textAlignment="center"
+                android:textSize="7pt"
+                android:textStyle="normal"
                 android:maxLength="16"
                 android:ems="10"
                 android:id="@+id/text_nomor_ktp"
@@ -65,13 +73,15 @@
 
             <TextView
                 android:text="Nama Lengkap"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_nama_lengkap"
                 android:layout_weight="1"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
@@ -90,6 +100,9 @@
                 android:layout_marginEnd="35dp"
                 android:inputType="textCapWords"
                 android:text=""
+                android:textAlignment="center"
+                android:textSize="7pt"
+                android:textStyle="normal"
                 android:capitalize="sentences"
                 android:ems="10"
                 android:id="@+id/text_nama_lengkap"
@@ -106,13 +119,15 @@
 
             <TextView
                 android:text="No. Hand Phone"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_no_hp"
                 android:layout_weight="1"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
@@ -131,6 +146,9 @@
                 android:layout_marginEnd="35dp"
                 android:inputType="number"
                 android:text=""
+                android:textAlignment="center"
+                android:textSize="7pt"
+                android:textStyle="normal"
                 android:ems="10"
                 android:id="@+id/text_no_hp"
                 android:hint=""
@@ -145,13 +163,15 @@
 
             <TextView
                 android:text="Email"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_email"
                 android:layout_weight="1"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
@@ -170,6 +190,9 @@
                 android:layout_marginEnd="35dp"
                 android:inputType="textEmailAddress"
                 android:text=""
+                android:textAlignment="center"
+                android:textSize="7pt"
+                android:textStyle="normal"
                 android:ems="10"
                 android:id="@+id/text_email"
                 android:hint=""
@@ -185,13 +208,15 @@
 
             <TextView
                 android:text="Alamat Rumah"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_alamat_rumah"
                 android:layout_weight="1"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
@@ -210,6 +235,9 @@
                 android:layout_marginEnd="35dp"
                 android:inputType="textPersonName"
                 android:text=""
+                android:textAlignment="textStart"
+                android:textSize="7pt"
+                android:textStyle="normal"
                 android:ems="10"
                 android:id="@+id/text_alamat_rumah"
                 android:hint=""
@@ -224,26 +252,30 @@
 
             <Button
                 android:text="Kembali"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="0dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/button_back_login"
                 android:layout_weight="1"
                 tools:ignore="ButtonStyle,HardcodedText,ObsoleteLayoutParam" />
 
             <Button
                 android:text="Proses"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/button_save_signup"
                 android:layout_weight="1"
                 tools:ignore="ButtonStyle,HardcodedText,ObsoleteLayoutParam" />

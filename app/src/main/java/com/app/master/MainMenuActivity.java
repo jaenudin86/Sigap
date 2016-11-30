@@ -27,6 +27,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +52,10 @@ public class MainMenuActivity extends AppCompatActivity
     /**
      * UI Reference
      * */
+    private TableRow tbl_bg_livechat;
+    private TableRow tbl_bg_bantuanterdekat;
+    private TableRow tbl_bg_pelayananpolres;
+
     private TextView label_button_panic_text;
     private TextView label_button_promoter_text;
     private TextView label_button_sherif_text;
@@ -361,12 +366,25 @@ public class MainMenuActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
+        tbl_bg_livechat = (TableRow) findViewById(R.id.tbl_bg_livechat);
+        tbl_bg_livechat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * Start live chat activity
+                 * */
+                Intent intent = new Intent(MainMenuActivity.this, LiveChatActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void ClickBantuanTerdekat ()
     {
         label_button_sherif_text = (TextView) findViewById(R.id.label_button_sherif_text);
         label_button_sherif_img = (ImageView) findViewById(R.id.label_button_sherif_img);
+        tbl_bg_bantuanterdekat = (TableRow) findViewById(R.id.tbl_bg_bantuanterdekat);
 
         label_button_sherif_text.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -388,12 +406,23 @@ public class MainMenuActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+        tbl_bg_bantuanterdekat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * Start bantuan terdekat
+                 * */
+                Intent intent = new Intent(MainMenuActivity.this, BantuanTerdekatActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void ClickPelayananPolres ()
     {
         label_button_police_img = (ImageView) findViewById(R.id.label_button_police_img);
         label_button_police_text = (TextView) findViewById(R.id.label_button_police_text);
+        tbl_bg_pelayananpolres = (TableRow) findViewById(R.id.tbl_bg_pelayananpolres);
 
         label_button_police_img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -406,6 +435,16 @@ public class MainMenuActivity extends AppCompatActivity
             }
         });
         label_button_police_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * Start pelayanan polres
+                 * */
+                Intent intent = new Intent(MainMenuActivity.this, PelayananPolresActivity.class);
+                startActivity(intent);
+            }
+        });
+        tbl_bg_pelayananpolres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 /**

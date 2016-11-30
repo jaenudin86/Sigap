@@ -14,7 +14,7 @@
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nsv_0"
-        android:background="@drawable/back_white"
+        android:background="#eeeeee"
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,13 +38,14 @@
                 <TextView
                     android:id="@+id/label_gantipassword"
                     android:text="Ganti password :"
+                    android:textColor="#000000"
                     android:textStyle="bold"
                     android:textSize="7pt"/>
             </TableRow>
 
             <!-- Separator -->
             <TableRow
-                android:layout_height="10dp"
+                android:layout_height="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"/>
             <!-- End of Separator -->
 
@@ -54,15 +55,16 @@
                 <EditText
                     android:id="@+id/text_password_old"
                     android:inputType="textPassword"
-                    android:textSize="6.5pt"
-                    android:textStyle="normal"
                     android:hint="Password lama anda"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="7pt"
+                    android:textStyle="normal"/>
             </TableRow>
 
             <!-- Separator -->
             <TableRow
-                android:layout_height="10dp"
+                android:layout_height="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"/>
             <!-- End of Separator -->
 
@@ -72,15 +74,16 @@
                 <EditText
                     android:id="@+id/text_password_new"
                     android:inputType="textPassword"
-                    android:textSize="6.5pt"
-                    android:textStyle="normal"
                     android:hint="Password baru"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="7pt"
+                    android:textStyle="normal"/>
             </TableRow>
 
             <!-- Separator -->
             <TableRow
-                android:layout_height="10dp"
+                android:layout_height="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"/>
             <!-- End of Separator -->
 
@@ -90,15 +93,16 @@
                 <EditText
                     android:id="@+id/text_password_new_repeat"
                     android:inputType="textPassword"
-                    android:textSize="6.5pt"
-                    android:textStyle="normal"
                     android:hint="Ulangi password baru"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="7pt"
+                    android:textStyle="normal"/>
             </TableRow>
 
             <!-- Separator -->
             <TableRow
-                android:layout_height="10dp"
+                android:layout_height="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"/>
             <!-- End of Separator -->
 
@@ -106,11 +110,9 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent">
                 <Button
-                    android:background="@drawable/background_02"
                     android:text="Update"
-                    android:textColor="#ffffff"
-                    android:textSize="6.5pt"
-                    android:textStyle="normal"
+                    android:textSize="7pt"
+                    android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/button_update_password"

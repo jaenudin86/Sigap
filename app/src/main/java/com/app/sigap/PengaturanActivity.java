@@ -227,8 +227,8 @@ public class PengaturanActivity extends AppCompatActivity {
             "fonts/titillium_regular_webfont.ttf"
         );
         Typeface typeface_semibold = Typeface.createFromAsset(
-                getApplicationContext().getAssets(),
-                "fonts/titillium-semibold-webfont.ttf"
+            getApplicationContext().getAssets(),
+            "fonts/titillium-semibold-webfont.ttf"
         );
 
         /**
@@ -239,7 +239,7 @@ public class PengaturanActivity extends AppCompatActivity {
         text_password_old.setTypeface(typeface_regular);
         text_password_new.setTypeface(typeface_regular);
         text_password_new_repeat.setTypeface(typeface_regular);
-        button_update_password.setTypeface(typeface_regular);
+        button_update_password.setTypeface(typeface_semibold);
     }
 
     private void setMessage()

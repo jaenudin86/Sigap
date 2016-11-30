@@ -2,14 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
 
+    <!--
     <ImageView
         android:src="@drawable/back_white"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="fitXY"
         tools:ignore="ContentDescription" />
+    -->
 
     <TableLayout
         android:layout_width="match_parent"
@@ -25,13 +28,15 @@
 
             <TextView
                 android:text="Kode Verifikasi"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_kode_verifikasi"
                 android:layout_weight="1"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
@@ -50,6 +55,8 @@
                 android:layout_marginEnd="35dp"
                 android:inputType="textPersonName"
                 android:text=""
+                android:textSize="7pt"
+                android:textStyle="normal"
                 android:editable="false"
                 android:enabled="false"
                 android:ems="10"
@@ -66,13 +73,15 @@
 
             <TextView
                 android:text="Username"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_username"
                 android:layout_weight="1"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
@@ -91,6 +100,8 @@
                 android:layout_marginEnd="35dp"
                 android:inputType="textPersonName"
                 android:text=""
+                android:textSize="7pt"
+                android:textStyle="normal"
                 android:ems="10"
                 android:id="@+id/text_username"
                 android:hint=""
@@ -105,13 +116,15 @@
 
             <TextView
                 android:text="Password"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_password"
                 android:layout_weight="1"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
@@ -130,6 +143,8 @@
                 android:layout_marginEnd="35dp"
                 android:inputType="textPassword"
                 android:text=""
+                android:textSize="7pt"
+                android:textStyle="normal"
                 android:ems="10"
                 android:id="@+id/text_password"
                 android:hint=""
@@ -144,13 +159,15 @@
 
             <TextView
                 android:text="Ketik Ulang Password"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/label_repeat_password"
                 android:layout_weight="1"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />
@@ -169,6 +186,8 @@
                 android:layout_marginEnd="35dp"
                 android:inputType="textPassword"
                 android:text=""
+                android:textSize="7pt"
+                android:textStyle="normal"
                 android:ems="10"
                 android:id="@+id/text_repeat_password"
                 android:hint=""
@@ -183,13 +202,15 @@
 
             <Button
                 android:text="Proses"
+                android:textSize="7pt"
+                android:textStyle="bold"
                 android:layout_width="0dp"
                 android:layout_marginStart="35dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="35dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:id="@+id/button_save"
                 android:layout_weight="1"
                 tools:ignore="HardcodedText,ObsoleteLayoutParam" />

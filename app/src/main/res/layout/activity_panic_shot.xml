@@ -5,7 +5,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-    android:background="@drawable/back_white"
+    android:background="#eeeeee"
 	android:fitsSystemWindows="true"
 	tools:context="com.app.sigap.PanicShotActivity">
 
@@ -28,7 +28,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/background_02"
+            android:background="#b71c1c"
             android:orientation="horizontal"
             tools:ignore="UselessParent"
             android:layout_weight="1.25">

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -13,16 +13,13 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.app.master.MainMenuActivity;
 import com.app.sources.MemberLog;
 import com.app.sources.SQLConnection;
 import com.app.sources.UserIDE;
@@ -332,26 +329,30 @@ public class SignupActivity extends AppCompatActivity {
         /**
          * Set typeface
          * */
-        Typeface typeface = Typeface.createFromAsset(
+        Typeface typeface_regular = Typeface.createFromAsset(
             getApplicationContext().getAssets(),
             "fonts/titillium_regular_webfont.ttf"
+        );
+        Typeface typeface_semibold = Typeface.createFromAsset(
+            getApplicationContext().getAssets(),
+            "fonts/titillium-semibold-webfont.ttf"
         );
 
         /**
          * Set cusom fonts
          * */
-        label_nomor_ktp.setTypeface(typeface);
-        label_nama_lengkap.setTypeface(typeface);
-        label_no_hp.setTypeface(typeface);
-        label_email.setTypeface(typeface);
-        label_alamat_rumah.setTypeface(typeface);
-        text_nomor_ktp.setTypeface(typeface);
-        text_nama_lengkap.setTypeface(typeface);
-        text_no_hp.setTypeface(typeface);
-        text_email.setTypeface(typeface);
-        text_alamat_rumah.setTypeface(typeface);
-        button_back_login.setTypeface(typeface);
-        button_save_signup.setTypeface(typeface);
+        label_nomor_ktp.setTypeface(typeface_semibold);
+        label_nama_lengkap.setTypeface(typeface_semibold);
+        label_no_hp.setTypeface(typeface_semibold);
+        label_email.setTypeface(typeface_semibold);
+        label_alamat_rumah.setTypeface(typeface_semibold);
+        text_nomor_ktp.setTypeface(typeface_regular);
+        text_nama_lengkap.setTypeface(typeface_regular);
+        text_no_hp.setTypeface(typeface_regular);
+        text_email.setTypeface(typeface_regular);
+        text_alamat_rumah.setTypeface(typeface_regular);
+        button_back_login.setTypeface(typeface_semibold);
+        button_save_signup.setTypeface(typeface_semibold);
     }
 
 }

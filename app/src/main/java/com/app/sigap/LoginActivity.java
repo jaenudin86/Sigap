@@ -409,21 +409,25 @@ public class LoginActivity extends AppCompatActivity {
         /**
          * Set typeface
          * */
-        Typeface typeface = Typeface.createFromAsset(
+        Typeface typeface_regular = Typeface.createFromAsset(
             getApplicationContext().getAssets(),
             "fonts/titillium_regular_webfont.ttf"
+        );
+        Typeface typeface_semibold = Typeface.createFromAsset(
+            getApplicationContext().getAssets(),
+            "fonts/titillium-semibold-webfont.ttf"
         );
 
         /**
          * Set custom fonts
          * */
-        button_login.setTypeface(typeface);
-        label_forget_password.setTypeface(typeface);
-        label_signup.setTypeface(typeface);
-        label_password.setTypeface(typeface);
-        label_username.setTypeface(typeface);
-        text_password.setTypeface(typeface);
-        text_username.setTypeface(typeface);
+        button_login.setTypeface(typeface_semibold);
+        label_forget_password.setTypeface(typeface_semibold);
+        label_signup.setTypeface(typeface_semibold);
+        label_password.setTypeface(typeface_semibold);
+        label_username.setTypeface(typeface_semibold);
+        text_password.setTypeface(typeface_regular);
+        text_username.setTypeface(typeface_regular);
     }
 
     private void setMessage()

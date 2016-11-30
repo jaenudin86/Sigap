@@ -15,7 +15,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -265,8 +264,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         text_nomorktp.setTypeface(typeface_regular);
         text_phone.setTypeface(typeface_regular);
 
-        button_back.setTypeface(typeface_regular);
-        button_submit_forget_password.setTypeface(typeface_regular);
+        button_back.setTypeface(typeface_semibold);
+        button_submit_forget_password.setTypeface(typeface_semibold);
     }
 
     private void setMessage()
