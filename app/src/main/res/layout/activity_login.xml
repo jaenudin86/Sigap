@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:paddingLeft="@dimen/activity_vertical_margin"
         android:paddingRight="@dimen/activity_vertical_margin">
 
@@ -46,7 +48,8 @@
                 android:textColor="#ffffff"
                 android:id="@+id/label_username"
                 android:layout_weight="1"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+                tools:ignore="HardcodedText,ObsoleteLayoutParam"
+                android:layout_alignParentLeft="true"/>
 
         </TableRow>
 
@@ -88,7 +91,8 @@
                 android:textColor="#ffffff"
                 android:id="@+id/label_password"
                 android:layout_weight="1"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+                tools:ignore="HardcodedText,ObsoleteLayoutParam"
+                android:layout_alignParentLeft="true"/>
 
         </TableRow>
 
@@ -132,7 +136,8 @@
                 android:background="#ffe100"
                 android:id="@+id/button_login"
                 android:layout_weight="1"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
+                tools:ignore="HardcodedText,ObsoleteLayoutParam"
+                android:layout_alignParentLeft="true"/>
 
         </TableRow>
         <!-- End of Button Submit -->
@@ -143,40 +148,58 @@
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/activity_vertical_margin">
 
-            <TextView
-                android:text="Lupa Password"
-                android:textSize="7pt"
-                android:textStyle="bold"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:textColor="#ffffff"
-                android:id="@+id/label_forget_password"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:drawableTop="@drawable/unlock_yellow"
-                android:gravity="bottom|center_horizontal"
-                android:textIsSelectable="true"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
-
-            <TextView
-                android:text="Daftar Akun Baru"
-                android:textSize="7pt"
-                android:textStyle="bold"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:textColor="#ffffff"
-                android:id="@+id/label_signup"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:drawableTop="@drawable/user_add"
-                android:gravity="bottom|center_horizontal"
-                android:textIsSelectable="true"
-                tools:ignore="HardcodedText,ObsoleteLayoutParam" />
-
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TableRow
+                    android:id="@+id/tbl_bg_lupapassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5">
+                    <TextView
+                        android:text="Lupa Password"
+                        android:textSize="7pt"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:textColor="#ffffff"
+                        android:id="@+id/label_forget_password"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/unlock_yellow"
+                        android:gravity="bottom|center_horizontal"
+                        android:textIsSelectable="true"
+                        tools:ignore="HardcodedText,ObsoleteLayoutParam"
+                        android:layout_alignParentLeft="true"/>
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tbl_bg_daftarakunbaru"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5">
+                    <TextView
+                        android:text="Daftar Akun Baru"
+                        android:textSize="7pt"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:textColor="#ffffff"
+                        android:id="@+id/label_signup"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableTop="@drawable/user_add"
+                        android:gravity="bottom|center_horizontal"
+                        android:textIsSelectable="true"
+                        tools:ignore="HardcodedText,ObsoleteLayoutParam"
+                        android:layout_alignParentLeft="true"/>
+                </TableRow>
+            </LinearLayout>
         </TableRow>
         <!-- End of Link Forget Password & Signup -->
 

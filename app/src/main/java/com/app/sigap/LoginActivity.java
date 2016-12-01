@@ -16,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -26,9 +27,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.app.master.MainMenuActivity;
+import com.app.sources.LoginIDE;
 import com.app.sources.MainMenuIDE;
 import com.app.sources.SQLConnection;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
      * Set this var as false.
      * */
     private boolean login = false;
+    private Calendar calendar;
     private static int shutdown_interval = 5000;
 
     /**
@@ -50,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button button_login;
     private EditText text_password;
     private EditText text_username;
+    private TableRow tbl_bg_lupapassword, tbl_bg_daftarakunbaru;
     private TextView label_forget_password;
     private TextView label_signup;
     private TextView label_password;
@@ -160,7 +165,15 @@ public class LoginActivity extends AppCompatActivity {
     private void ClickForgetPassword ()
     {
         label_forget_password = (TextView) findViewById(R.id.label_forget_password);
+        tbl_bg_lupapassword = (TableRow) findViewById(R.id.tbl_bg_lupapassword);
+
         label_forget_password.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckNomorKTP();
+            }
+        });
+        tbl_bg_lupapassword.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 CheckNomorKTP();
@@ -171,9 +184,26 @@ public class LoginActivity extends AppCompatActivity {
     private void ClickSignup ()
     {
         label_signup = (TextView) findViewById(R.id.label_signup);
+        tbl_bg_daftarakunbaru = (TableRow) findViewById(R.id.tbl_bg_daftarakunbaru);
+
         label_signup.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                /**
+                 * End of login activity
+                 * */
+                finishAffinity();
+
+                /**
+                 * Go to signup activity
+                 * */
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(intent);
+            }
+        });
+        tbl_bg_daftarakunbaru.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 /**
                  * End of login activity
                  * */
@@ -195,7 +225,7 @@ public class LoginActivity extends AppCompatActivity {
          * */
         SharedPreferences sharedPreferences;
         sharedPreferences = getSharedPreferences(
-                SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
+            SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
         );
 
         String nomorktp;
@@ -207,19 +237,141 @@ public class LoginActivity extends AppCompatActivity {
         }
         else
         {
-            /**
-             * End of login activity
-             * */
-            finishAffinity();
-
-            /**
-             * Go to forget password activity
-             * */
-            Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
-            startActivity(intent);
+            CheckTanggalForgetPassword(nomorktp);
         }
     }
 
+    private void CheckTanggalForgetPassword (String nomorktp)
+    {
+        /**
+         * Get and set date by your phone
+         * */
+        calendar = Calendar.getInstance();
+
+        int iYear, iMonth, iDate;
+        iYear = calendar.get(Calendar.YEAR);
+        iMonth = calendar.get(Calendar.MONTH);
+        iDate = calendar.get(Calendar.DATE);
+
+        String month, date, dtanggal;
+        // prepared month
+        if ( (iMonth + 1) < 10 )
+        {
+            month = "0" + (iMonth + 1);
+        }
+        else
+        {
+            month = "" + (iMonth + 1);
+        }
+
+        // prepared date
+        if ( iDate < 10 )
+        {
+            date = "0" + iDate;
+        }
+        else
+        {
+            date = "" + iDate;
+        }
+
+        dtanggal = "" + iYear + "-" + month + "-" + date;
+
+        // prepared set date into your memory
+        /* SharedPreferences sharedPreferences;
+        sharedPreferences = LoginActivity.this.getSharedPreferences(
+            SQLConnection.SHARED_PREFERENCE_ID_LOGIN, Context.MODE_PRIVATE
+        ); */
+
+        // create new variable for set date into your phone
+        // SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        // add value into editor
+        // editor.putString(SQLConnection.SHARED_PREFERENCE_DTANGGAL, dtanggal);
+
+        // set date
+        // editor.commit();
+        /**
+         * End of get and set date by your phone
+         * */
+
+        /**
+         * Show toast or log for test get date from your phone
+         * */
+        // System.out.println("Tanggal : " + dtanggal);
+        // Toast.makeText(LoginActivity.this, "Tanggal : " + dtanggal, Toast.LENGTH_LONG).show();
+
+        /**
+         * Check date on database
+         * */
+        CheckTanggalOnDatabase(nomorktp, dtanggal);
+    }
+
+    private void CheckTanggalOnDatabase (final String nomorktp, final String dtanggal)
+    {
+        /**
+         * Buatkan Request Dalam bentuk String
+         * */
+        StringRequest stringRequest = new StringRequest(
+            Request.Method.POST, SQLConnection.URL_CHECK_DATE_ON_DATABASE,
+            new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    String message;
+
+                    /**
+                     * Check respon dari server
+                     * */
+                    if(response.equalsIgnoreCase(SQLConnection.CHECK_DATE_SUCCESS))
+                    {
+                        message = LoginIDE.pesan_forgetpassword_checkdate_failed;
+                        setMessage(message);
+                    }
+                    else
+                    {
+                        /**
+                         * End of login activity
+                         * */
+                        finishAffinity();
+
+                        /**
+                         * Open forget password activity
+                         * */
+                        Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            },
+            new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    /**
+                     * Tambahkan apa yang terjadi setelah Pesan Error muncul, alternatif
+                     * */
+                    //error.printStackTrace();
+                }
+            }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<>();
+                /**
+                 * Set parameter for web service
+                 * */
+                params.put(SQLConnection.KEY_NO_KTP, nomorktp);
+                params.put(SQLConnection.KEY_TANGGAL_YYYYMMDD, dtanggal);
+
+                /**
+                 * Return parameter values above
+                 * */
+                return params;
+            }
+        };
+
+        /**
+         * Tambahkan Request String ke dalam Queue
+         * */
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
 
     private void Login(final String username, final String password)
     {
@@ -435,15 +587,35 @@ public class LoginActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(MainMenuIDE.pesan_account_nothing);
         builder.setPositiveButton(
-                "Ok",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        /**
-                         * Stay on login
-                         * */
-                    }
+            "Ok",
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    /**
+                     * Stay on login
+                     * */
                 }
+            }
+        );
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void setMessage(String message)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message);
+        builder.setPositiveButton(
+            "Ok",
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    /**
+                     * Stay on login
+                     * */
+                }
+            }
         );
 
         AlertDialog alertDialog = builder.create();

@@ -23,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.app.sources.LoginIDE;
 import com.app.sources.MainMenuIDE;
 import com.app.sources.SQLConnection;
 import com.app.sources.UserIDE;
@@ -133,7 +134,9 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                             /**
                              * If success
                              * */
-                            String message = response.substring(8);
+                            String message;
+                            // message = response.substring(8); /* message from data center */
+                            message = LoginIDE.pesan_sendsms_forgetpassword;
                             setMessage(message);
                         }
                     }

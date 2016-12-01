@@ -6,7 +6,9 @@ package com.app.sources;
 
 public interface MainMenuIDE {
 
-    String pesan_account_nothing = "Gunakan fasilitas ini hanya dalam keadaan benar-benar lupa kata sandi." + "\n" + "Silahkan buat akun terlebih dahulu." + "\n\n" + "Ttd." + "\n" + "Developer SIGAP App";
+    String developer = "POLRES Barito Utara";
+
+    String pesan_account_nothing = "Gunakan fasilitas ini hanya dalam keadaan benar-benar lupa kata sandi." + "\n" + "Silahkan buat akun terlebih dahulu." + "\n\n" + "Ttd." + "\n" + developer;
 
     String pesan_logout = "Keluar aplikasi sekarang ?";
 

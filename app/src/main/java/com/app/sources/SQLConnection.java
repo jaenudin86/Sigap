@@ -20,6 +20,8 @@ public class SQLConnection {
 
     public static final String KEY_PASSWORD = "password";
 
+    public static final String KEY_TANGGAL_YYYYMMDD = "dtanggal";
+
     public static final String KEY_KODE_VERIFIKASI = "kode_verifikasi";
 
     public static final String KEY_PHONE_NUMBER = "phone";
@@ -50,15 +52,15 @@ public class SQLConnection {
     /**
      * URL Bantuan Terdekat (Polisi)
      * */
-    public static final String URL_BANTUAN_TERDEKAT_POLISI = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_POLISI = URL_HOST + "/sigap/sigap_android/kuncoro_crud/";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_SELECT = URL_HOST + "/sigap/sigap_android/show_help_police.php";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_INSERT = URL_HOST + "/sigap/sigap_android/insert_help_police.php";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_EDIT = URL_HOST + "/sigap/sigap_android/edit_help_police.php";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_UPDATE = URL_HOST + "/sigap/sigap_android/update_help_police.php";
     public static final String URL_BANTUAN_TERDEKAT_POLISI_DELETE = URL_HOST + "/sigap/sigap_android/delete_help_police.php";
-    public static final String URL_BANTUAN_TERDEKAT_RS = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
-    public static final String URL_BANTUAN_TERDEKAT_DAMKAR = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
-    public static final String URL_BANTUAN_TERDEKAT_SPBU = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_RS = URL_HOST + "/sigap/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_DAMKAR = URL_HOST + "/sigap/sigap_android/kuncoro_crud/";
+    public static final String URL_BANTUAN_TERDEKAT_SPBU = URL_HOST + "/sigap/sigap_android/kuncoro_crud/";
 
     /**
      * URL Berita Polres
@@ -74,7 +76,7 @@ public class SQLConnection {
     /**
      * URL select data kapolres
      * */
-    public static final String URL_POLRES_SELECT_KAPOLRES = "http://110.50.84.171/sigap/sigap_android/kuncoro_crud/select_kapolres.php";
+    public static final String URL_POLRES_SELECT_KAPOLRES = URL_HOST + "/sigap/sigap_android/kuncoro_crud/select_kapolres.php";
 
     /**
      * URL Registrasi SIM
@@ -120,6 +122,12 @@ public class SQLConnection {
      * URL Send Mail
      * */
     public static final String URL_FORGET_PASSWORD = URL_HOST + "/sigap/sigap_android/lupa_password.php";
+
+    /**
+     * URL Check Date on Database
+     * */
+    public static final String URL_CHECK_DATE_ON_DATABASE = URL_HOST + "/sigap/sigap_android/check_date.php";
+    public static final String CHECK_DATE_SUCCESS = "success";
 
     /**
      * URL Signup
@@ -179,7 +187,8 @@ public class SQLConnection {
      * */
     public static final String SHARED_PREFERENCE_USERNAME = "username";
     public static final String SHARED_PREFERENCE_PASSWORD =  "password";
-    public static final String SHARED_PREFERENCE_NO_KTP = "nomorktp"; //identity_number
+    public static final String SHARED_PREFERENCE_NO_KTP = "nomorktp"; /* identity_number */
     public static final String SHARED_PREFERENCE_EMAIL = "email";
+    public static final String SHARED_PREFERENCE_DTANGGAL = "dtanggal";
 
 }
