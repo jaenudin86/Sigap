@@ -46,7 +46,7 @@
         android:icon="@drawable/logo_new"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/SplashScreen">
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -78,7 +78,7 @@
             android:label="@string/title_activity_login"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/LogIn" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Forget Password Activity -->
         <activity
@@ -86,7 +86,7 @@
             android:label="@string/title_activity_forget_password"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/ForgetPassword" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Main Menu Activity -->
         <activity
@@ -102,7 +102,7 @@
             android:label="@string/title_activity_signup"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/SignUp" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Signup Verification Activity -->
         <activity
@@ -110,7 +110,7 @@
             android:label="@string/title_activity_signup_verification"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/SignUpVerification" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Signup Verification Activity -->
         <activity
@@ -118,7 +118,7 @@
             android:label="@string/title_activity_live_chat_sigap"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/LiveChat" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Bantuan Terdekat Activity -->
         <activity
@@ -126,7 +126,7 @@
             android:label="@string/title_activity_bantuan_terdekat"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/BantuanTerdekat" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Berita Polres -->
         <activity
@@ -171,7 +171,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/DataPolres" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Data Rumah Sakit -->
         <activity
@@ -180,7 +180,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/DataPolres" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Data Pemadam Kebakaran -->
         <activity
@@ -189,7 +189,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/DataPolres" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Data SPBU -->
         <activity
@@ -198,7 +198,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/DataPolres" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Pelayanan Polres Activity -->
         <activity
@@ -206,7 +206,7 @@
             android:label="@string/title_activity_pelayanan_polres"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/BantuanTerdekat" />
+            android:theme="@style/SplashScreen" />
 
         <!-- Qiscus Chat -->
         <activity

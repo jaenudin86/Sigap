@@ -1,26 +1,27 @@
 package com.app.sigap;
 
+import android.Manifest;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,10 +33,9 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.app.adapter.Adapter;
 import com.app.config.AppController;
-import com.app.master.MainMenuActivity;
 import com.app.sources.Data;
+import com.app.sources.MainMenuIDE;
 import com.app.sources.SQLConnection;
-import com.lib.font.FontsOverride;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -139,24 +139,22 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
         // listview ditekan lama akan menampilkan dua pilihan edit atau delete data
         /*
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-
             @Override
-            public boolean onItemLongClick(final AdapterView<?> parent, View view,
-                                           final int position, long id) {
+            public boolean onItemLongClick(final AdapterView<?> parent, View view, final int position, long id) {
                 // TODO Auto-generated method stub
                 final String idx = itemList.get(position).getId();
 
                 final CharSequence[] dialogitem = {"Edit", "Delete"};
                 dialog = new AlertDialog.Builder(PolisiActivity.this);
                 dialog.setCancelable(true);
-                dialog.setItems(dialogitem, new DialogInterface.OnClickListener() {
-
+                dialog.setItems(dialogitem, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // TODO Auto-generated method stub
-                        switch (which) {
+                        switch (which)
+                        {
                             case 0:
-                                edit(idx);
+                                call(idx);
                                 break;
                             case 1:
                                 delete(idx);
@@ -386,6 +384,59 @@ public class PolisiActivity extends AppCompatActivity implements SwipeRefreshLay
         };
 
         AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
+    }
+
+    private void ClickData ()
+    {
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                // TODO Auto-generated method stub
+                final String nama = itemList.get(position).getNama();
+                final String telepon = itemList.get(position).getTelepon();
+                final String phoneNumber = nama + "\n" + telepon;
+
+                final CharSequence[] dialogitem = {"Hubungi", "Lihat peta"};
+                dialog = new AlertDialog.Builder(PolisiActivity.this);
+                dialog.setCancelable(true);
+                dialog.setItems(dialogitem, new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // TODO Auto-generated method stub
+                        switch (which)
+                        {
+                            case 0:
+                                Toast.makeText(PolisiActivity.this, phoneNumber, Toast.LENGTH_LONG).show();
+                                break;
+                            case 1:
+                                //
+                                break;
+                        }
+                    }
+                }).show();
+
+                return false;
+            }
+        });
+    }
+
+    private void PhoneCall (String phoneNumber)
+    {
+        /**
+         * Intent : make phone call
+         * */
+        phoneNumber = MainMenuIDE.call + phoneNumber;
+
+        Intent phoneCall;
+        phoneCall = new Intent(Intent.ACTION_CALL);
+        phoneCall.setData(Uri.parse(phoneNumber));
+
+        if (ActivityCompat.checkSelfPermission(PolisiActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+        {
+            return;
+        }
+
+        startActivity(phoneCall);
     }
 
     // fungsi untuk get edit data

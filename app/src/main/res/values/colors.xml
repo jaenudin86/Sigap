@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorTeal">#009688</color>
     <color name="grey_text">#222D31</color>
     <color name="sendbird_purple_color">#824096</color>
 

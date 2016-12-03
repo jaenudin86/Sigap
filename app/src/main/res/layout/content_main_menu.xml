@@ -30,7 +30,8 @@
             android:layout_alignParentBottom="true"
             android:gravity="center_vertical"
             app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
-            tools:ignore="UselessParent">
+            tools:ignore="UselessParent"
+            android:layout_alignParentRight="true">
 
                 <!-- Tombol panik -->
                 <TableRow
@@ -68,7 +69,8 @@
                             android:clickable="true"
                             android:gravity="center_vertical|center_horizontal"
                             android:textIsSelectable="true"
-                            tools:ignore="ObsoleteLayoutParam" />
+                            tools:ignore="ObsoleteLayoutParam"
+                            android:layout_alignParentLeft="true"/>
                     </LinearLayout>
                 </TableRow>
                 <!-- End of Tombol panik -->
@@ -116,7 +118,8 @@
                                 android:clickable="true"
                                 android:gravity="left|center_vertical"
                                 android:textIsSelectable="true"
-                                tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+                                tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+                                android:layout_alignParentLeft="true"/>
                         </TableRow>
                     </RelativeLayout>
                 </TableRow>
@@ -166,7 +169,8 @@
                                 android:clickable="true"
                                 android:gravity="left|center_vertical"
                                 android:textIsSelectable="true"
-                                tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+                                tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+                                android:layout_alignParentLeft="true"/>
                         </TableRow>
                     </RelativeLayout>
                 </TableRow>
@@ -216,7 +220,8 @@
                                 android:clickable="true"
                                 android:gravity="left|center_vertical"
                                 android:textIsSelectable="true"
-                                tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded" />
+                                tools:ignore="HardcodedText,ObsoleteLayoutParam,RtlHardcoded"
+                                android:layout_alignParentLeft="true"/>
                         </TableRow>
                     </RelativeLayout>
                 </TableRow>
@@ -224,6 +229,7 @@
 
             <!-- Call center -->
             <TableRow
+                android:id="@+id/tbl_bg_footer_callcenterpolres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical">
@@ -243,7 +249,8 @@
                     android:clickable="true"
                     android:gravity="center_vertical|center_horizontal"
                     android:textIsSelectable="true"
-                    tools:ignore="ObsoleteLayoutParam" />
+                    tools:ignore="ObsoleteLayoutParam"
+                    android:layout_alignParentLeft="true"/>
             </TableRow>
             <!-- End of Call center -->
 

@@ -1,5 +1,6 @@
 package com.app.master;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,6 +11,7 @@ import android.graphics.Typeface;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -74,6 +76,8 @@ public class MainMenuActivity extends AppCompatActivity
 
     private MenuItem nav_menu_informasi;
     private MenuItem nav_menu_aplikasi;
+
+    private TableRow tbl_bg_footer_callcenterpolres;
     /**
      * End of ui reference
      * */
@@ -146,6 +150,8 @@ public class MainMenuActivity extends AppCompatActivity
         ClickBantuanTerdekat();
 
         ClickPelayananPolres();
+
+        ClickCallCenter();
 
         getCurrentLocation();
         /**
@@ -414,6 +420,55 @@ public class MainMenuActivity extends AppCompatActivity
                  * */
                 Intent intent = new Intent(MainMenuActivity.this, BantuanTerdekatActivity.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void ClickCallCenter ()
+    {
+        tbl_bg_footer_callcenterpolres = (TableRow) findViewById(R.id.tbl_bg_footer_callcenterpolres);
+        label_footer_memo = (TextView) findViewById(R.id.label_footer_memo);
+
+        tbl_bg_footer_callcenterpolres.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * Intent : make phone call
+                 * */
+                String phoneNumber;
+                phoneNumber = MainMenuIDE.phone_polres_baritoutara;
+
+                Intent phoneCall;
+                phoneCall = new Intent(Intent.ACTION_CALL);
+                phoneCall.setData(Uri.parse(phoneNumber));
+
+                if (ActivityCompat.checkSelfPermission(MainMenuActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    return;
+                }
+
+                startActivity(phoneCall);
+            }
+        });
+        label_footer_memo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /**
+                 * Intent : make phone call
+                 * */
+                String phoneNumber;
+                phoneNumber = MainMenuIDE.phone_polres_baritoutara;
+
+                Intent phoneCall;
+                phoneCall = new Intent(Intent.ACTION_CALL);
+                phoneCall.setData(Uri.parse(phoneNumber));
+
+                if (ActivityCompat.checkSelfPermission(MainMenuActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                {
+                    return;
+                }
+
+                startActivity(phoneCall);
             }
         });
     }
