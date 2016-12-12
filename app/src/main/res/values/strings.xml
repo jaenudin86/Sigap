@@ -222,6 +222,121 @@
     </string-array>
     <!-- End of SIM -->
 
+    <!-- SKCK -->
+    <string-array name="skck_polres_list_null">
+        <item>Pilih</item>
+        <item>POLRES BARITO UTARA</item>
+    </string-array>
+    <string-array name="skck_bulan">
+        <item>Pilih</item>
+        <item>Januari</item>
+        <item>Februari</item>
+        <item>Maret</item>
+        <item>April</item>
+        <item>Mei</item>
+        <item>Juni</item>
+        <item>Juli</item>
+        <item>Agustus</item>
+        <item>September</item>
+        <item>Oktober</item>
+        <item>Nopember</item>
+        <item>Desember</item>
+    </string-array>
+    <string-array name="skck_tanggal_null">
+        <item>Pilih</item>
+    </string-array>
+    <string-array name="skck_tanggal_genap">
+        <item>Pilih</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+    </string-array>
+    <string-array name="skck_tanggal_ganjil">
+        <item>Pilih</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+    </string-array>
+    <string-array name="skck_agama">
+        <item>Pilih</item>
+        <item>Budha</item>
+        <item>Hindu</item>
+        <item>Islam</item>
+        <item>Katolik</item>
+        <item>Kong Hu Chu</item>
+        <item>Protestan</item>
+    </string-array>
+    <string-array name="skck_kebangsaan">
+        <item>Pilih</item>
+        <item>Indonesia</item>
+        <item>Warga Negara Asing</item>
+    </string-array>
+    <string-array name="skck_pekerjaan_list">
+        <item>Pilih</item>
+        <item>1. Pelajar / mhs</item>
+        <item>2. Pegawai negeri</item>
+        <item>3. ABRI</item>
+        <item>4. Swasta</item>
+        <item>5. Pengemudi</item>
+        <item>6. Lain-lain</item>
+    </string-array>
+    <!-- End of SKCK -->
+
     <!-- Application -->
     <string name="app_logout">Keluar sekarang ?</string>
     <!-- End of Application-->
@@ -324,18 +439,18 @@
         GPS is disabled in your device. Would you like to enable it?
     </string>
 
-	<string-array name="related_arrays">
-		<item>Kritik dan Saran</item>
-		<item>Laporan Kejahatan</item>
-		<item>Laporan Narkoba</item>
-	</string-array>
-	<string name="title_activity_location_map">LocationMapActivity</string>
-	<!-- End of Yudi -->
+    <string-array name="related_arrays">
+        <item>Kritik dan Saran</item>
+        <item>Laporan Kejahatan</item>
+        <item>Laporan Narkoba</item>
+    </string-array>
+    <string name="title_activity_location_map">LocationMapActivity</string>
+    <!-- End of Yudi -->
 
-	<string name="panic_button_tap_counter_needed">%d kali tap lagi untuk mengirim request</string>
-	<string name="latitude">latitude</string>
-	<string name="longitude">longitude</string>
-	<string name="title_activity_panic_shot">Panic Shot</string>
-	<string name="panic_situation_img_cd">Panic situation</string>
-	<string name="panic_description_hint">Deskripsikan keadaan darurat\nyang sedang anda alami saat ini.\n</string>
+    <string name="panic_button_tap_counter_needed">%d kali tap lagi untuk mengirim request</string>
+    <string name="latitude">latitude</string>
+    <string name="longitude">longitude</string>
+    <string name="title_activity_panic_shot">Panic Shot</string>
+    <string name="panic_situation_img_cd">Panic situation</string>
+    <string name="panic_description_hint">Deskripsikan keadaan darurat\nyang sedang anda alami saat ini.\n</string>
 </resources>

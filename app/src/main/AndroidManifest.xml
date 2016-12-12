@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.app.sigap"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.app.sigap">
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="24" />
+        android:targetSdkVersion="24"/>
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <!-- Use android base feature -->
-    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"/>
 
     <!-- Yudi access -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.READ_CALL_LOG" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <!--<uses-permission android:name="android.permission.CAMERA" />-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
+
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
 
     <!-- android:name="com.app.config.AppController" -->
     <application
@@ -47,7 +50,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/SplashScreen">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -66,9 +68,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/SplashScreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
@@ -78,7 +80,7 @@
             android:label="@string/title_activity_login"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Forget Password Activity -->
         <activity
@@ -86,7 +88,7 @@
             android:label="@string/title_activity_forget_password"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Main Menu Activity -->
         <activity
@@ -94,7 +96,7 @@
             android:label="@string/title_activity_main_menu"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Signup Activity -->
         <activity
@@ -102,7 +104,7 @@
             android:label="@string/title_activity_signup"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Signup Verification Activity -->
         <activity
@@ -110,7 +112,7 @@
             android:label="@string/title_activity_signup_verification"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Signup Verification Activity -->
         <activity
@@ -118,7 +120,7 @@
             android:label="@string/title_activity_live_chat_sigap"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Bantuan Terdekat Activity -->
         <activity
@@ -126,7 +128,7 @@
             android:label="@string/title_activity_bantuan_terdekat"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Berita Polres -->
         <activity
@@ -135,7 +137,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Tentang Polres -->
         <activity
@@ -144,7 +146,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Tentang Aplikasi -->
         <activity
@@ -153,7 +155,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Tentang Aplikasi Revisi -->
         <activity
@@ -162,7 +164,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Data Kepolisian -->
         <activity
@@ -171,7 +173,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Data Rumah Sakit -->
         <activity
@@ -180,7 +182,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Data Pemadam Kebakaran -->
         <activity
@@ -189,7 +191,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Data SPBU -->
         <activity
@@ -198,7 +200,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Pelayanan Polres Activity -->
         <activity
@@ -206,7 +208,7 @@
             android:label="@string/title_activity_pelayanan_polres"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Qiscus Chat -->
         <activity
@@ -214,7 +216,7 @@
             android:label="@string/title_activity_live_chat_sigap"
             android:noHistory="false"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Yudi Chat -->
 
@@ -226,7 +228,7 @@
             android:noHistory="false"
             android:screenOrientation="landscape"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Pelayanan Polres : SIM Identitas diri -->
         <activity
@@ -235,7 +237,7 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Pelayanan Polres : SP2HP -->
         <activity
@@ -244,7 +246,7 @@
             android:noHistory="false"
             android:screenOrientation="landscape"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Pengaturan : ganti password, ubah identitas, dll -->
         <activity
@@ -253,20 +255,20 @@
             android:noHistory="false"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/SplashScreen" />
+            android:theme="@style/SplashScreen"/>
 
         <!-- Tombol Panik -->
         <activity
             android:name=".PanicShotActivity"
             android:label="@string/title_activity_panic_shot"
             android:noHistory="false"
+            android:parentActivityName="com.app.master.MainMenuActivity"
             android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:parentActivityName="com.app.master.MainMenuActivity"
             android:theme="@style/SplashScreen">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.app.master.MainMenuActivity" />
+                android:value="com.app.master.MainMenuActivity"/>
         </activity>
 
         <!-- [START firebase_service] -->
@@ -280,6 +282,7 @@
         -->
         <!-- [END firebase_service] -->
 
+
         <!-- [START firebase_iid_service] -->
         <!--
         <service
@@ -291,6 +294,8 @@
         -->
         <!-- [END firebase_iid_service] -->
 
+        <activity android:name=".SKCK2Activity">
+        </activity>
     </application>
 
 </manifest>

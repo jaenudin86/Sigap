@@ -9,8 +9,8 @@ android {
         applicationId "com.app.sigap"
         minSdkVersion 16
         targetSdkVersion 24
-        versionCode 10
-        versionName "2.2.3"
+        versionCode 11
+        versionName "2.2.4"
         consumerProguardFiles 'proguard-file.pro'
         multiDexEnabled true
     }
@@ -20,7 +20,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            debuggable false
+            debuggable true
         }
     }
     /*

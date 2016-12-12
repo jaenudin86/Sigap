@@ -130,7 +130,7 @@ public class PelayananPolresActivity extends AppCompatActivity {
                 /**
                  * Launch SKCK
                  * */
-                Intent intent = new Intent(PelayananPolresActivity.this, SKCKActivity.class);
+                Intent intent = new Intent(PelayananPolresActivity.this, SKCK2Activity.class);
                 startActivity(intent);
             }
         });
@@ -145,7 +145,7 @@ public class PelayananPolresActivity extends AppCompatActivity {
                 /**
                  * Launch SKCK
                  * */
-                Intent intent = new Intent(PelayananPolresActivity.this, SKCKActivity.class);
+                Intent intent = new Intent(PelayananPolresActivity.this, SKCK2Activity.class);
                 startActivity(intent);
             }
         });

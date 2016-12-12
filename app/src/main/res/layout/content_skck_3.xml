@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ct_data_skck3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.app.sigap.SKCK2Activity"
+    tools:showIn="@layout/activity_skck2"
+    android:visibility="gone">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nsv_3"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            tools:ignore="UselessLeaf">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SD (Sederajat)"
+                android:textSize="8pt"
+                android:textStyle="normal"
+                tools:ignore="HardcodedText" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:paddingBottom="@dimen/activity_vertical_margin"
+                    tools:ignore="RtlHardcoded,RtlSymmetry">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nama Sekolah / Lembaga"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_sd_namasekolah"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kab. / Kota"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_sd_kota"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tahun"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_sd_tahun"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SMP (Sederajat)"
+                android:textSize="8pt"
+                android:textStyle="normal"
+                tools:ignore="HardcodedText" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:paddingBottom="@dimen/activity_vertical_margin"
+                    tools:ignore="RtlHardcoded,RtlSymmetry">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nama Sekolah / Lembaga"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_smp_namasekolah"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kab. / Kota"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_smp_kota"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tahun"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_smp_tahun"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SMA (Sederajat)"
+                android:textSize="8pt"
+                android:textStyle="normal"
+                tools:ignore="HardcodedText" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:paddingBottom="@dimen/activity_vertical_margin"
+                    tools:ignore="RtlHardcoded,RtlSymmetry">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nama Sekolah / Lembaga"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_sma_namasekolah"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kab. / Kota"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_sma_kota"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tahun"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_sma_tahun"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Univ. / Perguruan Tinggi"
+                android:textSize="8pt"
+                android:textStyle="normal"
+                tools:ignore="HardcodedText" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:paddingBottom="@dimen/activity_vertical_margin"
+                    tools:ignore="RtlHardcoded,RtlSymmetry">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nama Sekolah / Lembaga"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_univ_namasekolah"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kab. / Kota"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_univ_kota"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tahun"
+                        android:textSize="7pt"
+                        android:textStyle="normal"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        android:id="@+id/text_univ_tahun"
+                        android:inputType="textPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:maxLength="50"
+                        android:textAlignment="center"
+                        android:textSize="7pt"
+                        android:textStyle="normal"/>
+                </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Button
+                    android:background="#b71c1c"
+                    android:id="@+id/button_back_pendidikan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:layout_marginRight="5dp"
+                    android:text="Kembali"
+                    android:textColor="#ffffff"
+                    android:textSize="7pt"
+                    android:textStyle="normal"
+                    tools:ignore="ButtonStyle,HardcodedText,RtlHardcoded" />
+                <Button
+                    android:background="#b71c1c"
+                    android:id="@+id/button_next_pendidikan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:layout_marginLeft="5dp"
+                    android:text="Selanjutnya"
+                    android:textColor="#ffffff"
+                    android:textSize="7pt"
+                    android:textStyle="normal"
+                    tools:ignore="ButtonStyle,HardcodedText,RtlHardcoded" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>
