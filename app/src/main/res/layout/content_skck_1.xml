@@ -346,7 +346,11 @@
                 android:textStyle="normal"
                 tools:ignore="HardcodedText"/>
             <ImageView
+<<<<<<< HEAD
                 android:id="@+id/img_photo_skck"
+=======
+                android:id="@+id/img_photo"
+>>>>>>> origin/master
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:visibility="gone"

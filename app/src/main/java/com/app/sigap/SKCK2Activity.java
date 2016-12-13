@@ -1,14 +1,22 @@
 package com.app.sigap;
 
+<<<<<<< HEAD
 import android.app.ProgressDialog;
+=======
+>>>>>>> origin/master
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+<<<<<<< HEAD
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+=======
+import android.os.Build;
+import android.os.Bundle;
+>>>>>>> origin/master
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
@@ -16,7 +24,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Base64;
+<<<<<<< HEAD
 import android.util.Log;
+=======
+>>>>>>> origin/master
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -40,13 +51,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+<<<<<<< HEAD
 import com.app.config.AppController;
 import com.app.request.AndroidMultipartEntity;
+=======
+>>>>>>> origin/master
 import com.app.sources.SKCKLog;
 import com.app.sources.SKCK_IDE;
 import com.app.sources.SQLConnection;
 import com.app.sources.SimIDE;
 
+<<<<<<< HEAD
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -60,6 +75,9 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+=======
+import java.io.ByteArrayOutputStream;
+>>>>>>> origin/master
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -86,7 +104,11 @@ public class SKCK2Activity extends AppCompatActivity {
     private EditText text_univ_namasekolah, text_univ_kota, text_univ_tahun;
     private EditText text_1_luarnegeri, text_penggunaan;
     private ImageButton btn_close;
+<<<<<<< HEAD
     private ImageView img_photo_skck;
+=======
+    private ImageView img_photo;
+>>>>>>> origin/master
     private RadioButton radio_female, radio_male, radio_sudahmenikah, radio_belummenikah;
     private RadioButton radio_1_perkarapidana, radio_0_perkarapidana, radio_1_pelanggaran, radio_0_pelanggaran;
     private RelativeLayout ct_data_skck1, ct_data_skck2, ct_data_skck3, ct_data_skck4, ct_data_skck5;
@@ -100,6 +122,7 @@ public class SKCK2Activity extends AppCompatActivity {
     /**
      * Variables
      * */
+<<<<<<< HEAD
     int success;
     int PICK_IMAGE_REQUEST = 1;
     private static final String TAG = SKCK2Activity.class.getSimpleName();
@@ -116,6 +139,15 @@ public class SKCK2Activity extends AppCompatActivity {
     private String imageName;
     private Bitmap bitmap;
 
+=======
+    Bitmap bitmap;
+    int success;
+    int PICK_IMAGE_REQUEST = 1;
+    private static final String TAG_SUCCESS = "success";
+    private static final String TAG_MESSAGE = "message";
+    String tag_json_obj = "json_obj_req";
+
+>>>>>>> origin/master
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -231,6 +263,7 @@ public class SKCK2Activity extends AppCompatActivity {
         finishAffinity();
     }
 
+<<<<<<< HEAD
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         if (uriFilePath != null) {
@@ -240,6 +273,8 @@ public class SKCK2Activity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
+=======
+>>>>>>> origin/master
     private void ClickAgama ()
     {
         spinner_agama = (Spinner) findViewById(R.id.spinner_agama);
@@ -956,7 +991,11 @@ public class SKCK2Activity extends AppCompatActivity {
                     /**
                      * Data processing
                      * */
+<<<<<<< HEAD
                     new UploadFileToServer(SQLConnection.URL_PELAYANAN_POLRES_REG_SKCK).execute();
+=======
+                    SubmitSKCK();
+>>>>>>> origin/master
                 }
             }
         });
@@ -970,29 +1009,45 @@ public class SKCK2Activity extends AppCompatActivity {
         radio_male.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 String kelamin, SiHubunganKeluarga;
                 kelamin = SimIDE.jeniskelamin_pria;
                 SiHubunganKeluarga = "Istri";
 
+=======
+                String kelamin;
+                kelamin = SimIDE.jeniskelamin_pria;
+>>>>>>> origin/master
                 radio_female.setChecked(false);
                 radio_male.setChecked(true);
 
                 SKCKLog.setJenisKelamin(kelamin);
+<<<<<<< HEAD
                 SKCKLog.setSiHubunganKeluarga(SiHubunganKeluarga);
+=======
+>>>>>>> origin/master
             }
         });
         radio_female.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 String kelamin, SiHubunganKeluarga;
                 kelamin = SimIDE.jeniskelamin_wanita;
                 SiHubunganKeluarga = "Suami";
 
+=======
+                String kelamin;
+                kelamin = SimIDE.jeniskelamin_wanita;
+>>>>>>> origin/master
                 radio_female.setChecked(true);
                 radio_male.setChecked(false);
 
                 SKCKLog.setJenisKelamin(kelamin);
+<<<<<<< HEAD
                 SKCKLog.setSiHubunganKeluarga(SiHubunganKeluarga);
+=======
+>>>>>>> origin/master
             }
         });
     }
@@ -1103,7 +1158,11 @@ public class SKCK2Activity extends AppCompatActivity {
                 text_nomorktp = (EditText) findViewById(R.id.text_nomorktp);
                 text_nomorkk = (EditText) findViewById(R.id.text_nomorkk);
                 text_kontak = (EditText) findViewById(R.id.text_kontak);
+<<<<<<< HEAD
                 img_photo_skck = (ImageView) findViewById(R.id.img_photo_skck);
+=======
+                img_photo = (ImageView) findViewById(R.id.img_photo);
+>>>>>>> origin/master
                 text_photo = (EditText) findViewById(R.id.text_photo);
                 text_kebangsaan = (EditText) findViewById(R.id.text_kebangsaan);
                 ct_data_skck1 = (RelativeLayout) findViewById(R.id.ct_data_skck1);
@@ -2708,7 +2767,11 @@ public class SKCK2Activity extends AppCompatActivity {
 
     private void KosongkanImage ()
     {
+<<<<<<< HEAD
         img_photo_skck.setImageResource(0);
+=======
+        img_photo.setImageResource(0);
+>>>>>>> origin/master
     }
 
     private void LoadAgama ()
@@ -3123,14 +3186,22 @@ public class SKCK2Activity extends AppCompatActivity {
     }
 
     @Override
+<<<<<<< HEAD
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         img_photo_skck = (ImageView) findViewById(R.id.img_photo_skck);
+=======
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        img_photo = (ImageView) findViewById(R.id.img_photo);
+>>>>>>> origin/master
         text_photo = (EditText) findViewById(R.id.text_photo);
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri filePath = data.getData();
             try {
+<<<<<<< HEAD
                 //mengambil fambar dari Gallery
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 text_photo.setText(filePath.toString());
@@ -3142,6 +3213,18 @@ public class SKCK2Activity extends AppCompatActivity {
                 img_photo_skck.setImageBitmap(bitmap);
 
                 SKCKLog.setImage(getStringImage(bitmap));
+=======
+                //mengambil gambar dari Gallery
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                text_photo.setText(filePath.toString());
+
+                //menampilkan gambar yang dipilih dari gallery ke ImageView
+                img_photo.setVisibility(View.VISIBLE);
+                img_photo.setImageBitmap(bitmap);
+
+                String urlPhoto = getStringImage(bitmap);
+                SKCKLog.setImage(urlPhoto);
+>>>>>>> origin/master
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -3443,6 +3526,7 @@ public class SKCK2Activity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+<<<<<<< HEAD
     private void SubmitSKCK2 (){
         //menampilkan progress dialog
         final ProgressDialog loading = ProgressDialog.show(this, "Uploading...", "Please wait...", false, false);
@@ -3734,4 +3818,6 @@ public class SKCK2Activity extends AppCompatActivity {
         }
     }
 
+=======
+>>>>>>> origin/master
 }
