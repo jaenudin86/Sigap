@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ct_data_skck5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.app.sigap.SKCK2Activity"
+    tools:showIn="@layout/activity_skck2"
+    android:visibility="gone">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nsv_5"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            tools:ignore="UselessLeaf">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Surat Keterangan ini akan saya gunakan untuk :"
+                android:textSize="7pt"
+                android:textStyle="normal"/>
+            <EditText
+                android:id="@+id/text_penggunaan"
+                android:inputType="textPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="7pt"
+                android:textStyle="normal"/>
+            <CheckBox
+                android:id="@+id/check_penggunaan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Keterangan di atas saya buat dengan sebenarnya atas sumpah menurut kepercayaan saya, apabila di kemudian hari ternyata keterangan ini tidak benar, maka saya sanggup dituntut berdasarkan hukum yang berlaku."
+                android:textSize="7pt"
+                android:textStyle="normal"/>
+            <Button
+                android:id="@+id/button_selesai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#b71c1c"
+                android:text="Selesai"
+                android:textColor="#ffffff"
+                android:textSize="7pt"
+                android:textStyle="normal"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

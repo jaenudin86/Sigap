@@ -44,10 +44,82 @@ public class SQLConnection {
 
     public static final String KEY_MAIL_MESSAGE = "message";
 
+    public static final String KEY_SKCK_NOMORKTP = "nomor_ktp";
+    public static final String KEY_SKCK_NOMORKK = "nomor_kk";
+    public static final String KEY_SKCK_NAMALENGKAP = "nama_lengkap";
+    public static final String KEY_SKCK_KELAMIN = "kelamin";
+    public static final String KEY_SKCK_KOTA = "kota";
+    public static final String KEY_SKCK_TGLLAHIR = "tgl_lahir";
+    public static final String KEY_SKCK_AGAMA = "agama";
+    public static final String KEY_SKCK_KEBANGSAAN = "kebangsaan";
+    public static final String KEY_SKCK_PERNIKAHAN = "pernikahan";
+    public static final String KEY_SKCK_PEKERJAAN = "pekerjaan";
+    public static final String KEY_SKCK_ALAMAT = "alamat";
+    public static final String KEY_SKCK_EMAIL = "email";
+    public static final String KEY_SKCK_KONTAK = "kontak";
+    public static final String KEY_SKCK_IMAGE = "image";
+
+    public static final String KEY_SKCK_SD_NAMASEKOLAH = "sd_namasekolah";
+    public static final String KEY_SKCK_SD_KOTA = "sd_kota";
+    public static final String KEY_SKCK_SD_TAHUNLULUS = "sd_tahunlulus";
+    public static final String KEY_SKCK_SMP_NAMASEKOLAH = "smp_namasekolah";
+    public static final String KEY_SKCK_SMP_KOTA = "smp_kota";
+    public static final String KEY_SKCK_SMP_TAHUNLULUS = "smp_tahunlulus";
+    public static final String KEY_SKCK_SMA_NAMASEKOLAH = "sma_namasekolah";
+    public static final String KEY_SKCK_SMA_KOTA = "sma_kota";
+    public static final String KEY_SKCK_SMA_TAHUNLULUS = "sma_tahunlulus";
+    public static final String KEY_SKCK_UNIV_NAMASEKOLAH = "univ_namasekolah";
+    public static final String KEY_SKCK_UNIV_KOTA = "univ_kota";
+    public static final String KEY_SKCK_UNIV_TAHUNLULUS = "univ_tahunlulus";
+
+    public static final String KEY_SKCK_PERKARAPIDANA = "perkara_pidana";
+    public static final String KEY_SKCK_PELANGGARAN = "pelanggaran";
+    public static final String KEY_SKCK_KELUARNEGERI = "ke_luarnegeri";
+    public static final String KEY_SKCK_PENGGUNAAN = "penggunaan";
+
+    public static final String KEY_SKCK_SI_NAMALENGKAP = "namalengkap_si";
+    public static final String KEY_SKCK_SI_HUBUNGANKELUARGA = "hubungankeluarga_si";
+    public static final String KEY_SKCK_SI_KOTAKELAHIRAN = "kotakelahiran_si";
+    public static final String KEY_SKCK_SI_TGLLAHIR = "tgllahir_si";
+    public static final String KEY_SKCK_SI_ALAMAT = "alamat_si";
+    public static final String KEY_SKCK_SI_AGAMA = "agama_si";
+    public static final String KEY_SKCK_SI_KEBANGSAAN = "kebangsaan_si";
+    public static final String KEY_SKCK_SI_PEKERJAAN = "pekerjaan_si";
+
+    public static final String KEY_SKCK_BAPAK_NAMALENGKAP = "namalengkap_bapak";
+    public static final String KEY_SKCK_BAPAK_KOTAKELAHIRAN = "kotakelahiran_bapak";
+    public static final String KEY_SKCK_BAPAK_TGLLAHIR = "tgllahir_bapak";
+    public static final String KEY_SKCK_BAPAK_ALAMAT = "alamat_bapak";
+    public static final String KEY_SKCK_BAPAK_AGAMA = "agama_bapak";
+    public static final String KEY_SKCK_BAPAK_KEBANGSAAN = "kebangsaan_bapak";
+    public static final String KEY_SKCK_BAPAK_PEKERJAAN = "pekerjaan_bapak";
+
+    public static final String KEY_SKCK_IBU_NAMALENGKAP = "namalengkap_ibu";
+    public static final String KEY_SKCK_IBU_KOTAKELAHIRAN = "kotakelahiran_ibu";
+    public static final String KEY_SKCK_IBU_TGLLAHIR = "tgllahir_ibu";
+    public static final String KEY_SKCK_IBU_ALAMAT = "alamat_ibu";
+    public static final String KEY_SKCK_IBU_AGAMA = "agama_ibu";
+    public static final String KEY_SKCK_IBU_KEBANGSAAN = "kebangsaan_ibu";
+    public static final String KEY_SKCK_IBU_PEKERJAAN = "pekerjaan_ibu";
+
+    public static final String KEY_SKCK_SAUDARA_NAMALENGKAP = "namalengkap_saudara";
+    public static final String KEY_SKCK_SAUDARA_KOTAKELAHIRAN = "kotakelahiran_saudara";
+    public static final String KEY_SKCK_SAUDARA_TGLLAHIR = "tgllahir_saudara";
+    public static final String KEY_SKCK_SAUDARA_ALAMAT = "alamat_saudara";
+    public static final String KEY_SKCK_SAUDARA_AGAMA = "agama_saudara";
+    public static final String KEY_SKCK_SAUDARA_PEKERJAAN = "pekerjaan_saudara";
+
     /**
      * IP Public
+     * Ip Kantor : 110.50.84.171
+     * Ip POLRES Barito Utara : 110.139.128.167
      * */
-    private static final String URL_HOST = "http://110.50.84.171";
+    private static final String URL_HOST = "http://110.139.128.167";
+
+    /**
+     * Type of server side response
+     * */
+    public static final String URL_RESPONSE = "success";
 
     /**
      * URL Bantuan Terdekat (Polisi)
@@ -72,6 +144,8 @@ public class SQLConnection {
      * */
     public static final String URL_PELAYANAN_POLRES_SKCK = "http://e-skck.info/e_skck/request/token/gAyd443";
     public static final String URL_PELAYANAN_POLRES_SP2HP = "http://e-sp2hp.info/e_sp2hp/";
+
+    public static final String URL_PELAYANAN_POLRES_REG_SKCK = URL_HOST + "/sigap/sigap_android/insert_skck.php";
 
     /**
      * URL select data kapolres

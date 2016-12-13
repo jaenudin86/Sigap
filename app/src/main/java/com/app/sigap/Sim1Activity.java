@@ -6,11 +6,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -1081,6 +1082,7 @@ public class Sim1Activity extends AppCompatActivity implements SwipeRefreshLayou
          * Implement
          * */
         spinner_tanggallahir_tanggal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // An item was selected. You can retrieve the selected item using

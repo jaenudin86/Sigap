@@ -130,7 +130,7 @@ public class PelayananPolresActivity extends AppCompatActivity {
                 /**
                  * Launch SKCK
                  * */
-                Intent intent = new Intent(PelayananPolresActivity.this, SKCKActivity.class);
+                Intent intent = new Intent(PelayananPolresActivity.this, SKCK2Activity.class);
                 startActivity(intent);
             }
         });
@@ -145,7 +145,7 @@ public class PelayananPolresActivity extends AppCompatActivity {
                 /**
                  * Launch SKCK
                  * */
-                Intent intent = new Intent(PelayananPolresActivity.this, SKCKActivity.class);
+                Intent intent = new Intent(PelayananPolresActivity.this, SKCK2Activity.class);
                 startActivity(intent);
             }
         });
@@ -167,7 +167,7 @@ public class PelayananPolresActivity extends AppCompatActivity {
                 /**
                  * Launch SP2HP
                  * */
-                Intent intent = new Intent(PelayananPolresActivity.this, SP2HPActivity.class);
+                Intent intent = new Intent(PelayananPolresActivity.this, SPHP1Activity.class);
                 startActivity(intent);
             }
         });
@@ -182,7 +182,7 @@ public class PelayananPolresActivity extends AppCompatActivity {
                 /**
                  * Launch SP2HP
                  * */
-                Intent intent = new Intent(PelayananPolresActivity.this, SP2HPActivity.class);
+                Intent intent = new Intent(PelayananPolresActivity.this, SPHP1Activity.class);
                 startActivity(intent);
             }
         });
